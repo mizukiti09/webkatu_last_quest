@@ -1,0 +1,19 @@
+.l-header {
+    height: 60px;
+    background: azure;
+    border: solid;
+    &__inner {
+        height: 100%;
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+    }
+    &__logo {
+        height: 140%;
+        position: relative;
+        top: -8px;
+    }
+    &__logo img {
+        height: 100%;
+    }
+}
