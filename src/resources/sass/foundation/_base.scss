@@ -2,6 +2,7 @@
 // 変数
 // ==============================
 $font-color_default: #666;
+$baseColor: darkslategray;
 $font-size_s: 12px;
 $font-size_m: 14px;
 $font-size_default: 16px;
@@ -17,9 +18,16 @@ $space_xxl: 30px;
 $space_3l: 40px;
 $font-family_corp: 'Amatic SC',
 cursive;
+// セクションのmargin
+.f-section {
+    margin-top: 120px;
+    margin-bottom: 20px;
+}
+
+// ヘッダー高さ
+$headerHeight: 60px;
 body {
     font-size: $font-size_default;
 }
-.f-inner {
-  
-}
+
+.f-inner {}

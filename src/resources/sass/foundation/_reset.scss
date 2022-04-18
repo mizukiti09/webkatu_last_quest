@@ -85,6 +85,16 @@ video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    text-decoration: none;
+}
+
+a {
+    transition: .3s;
+}
+
+a:hover {
+    transition: .3s;
+    color: cadetblue;
 }
 
 
