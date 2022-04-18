@@ -1,0 +1,50 @@
+// トップページのヒーロ
+.p-hero {
+    height: 100%;
+    &__title {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    &__logo {
+        width: 380px;
+        height: 300px;
+        position: absolute;
+        right: 0;
+        bottom: 5%;
+    }
+}
+
+// お悩み
+.p-worry {
+    &__img {
+        max-width: 600px;
+        position: relative;
+        left: 48%;
+        transform: translateX(-50%);
+        margin-bottom: 30px;
+    }
+    &__description {
+        width: 60%;
+        margin: 0 auto;
+        font-size: $font-size_xl;
+        line-height: $font-size_xxxl;
+    }
+}
+
+// 強み
+.p-strong {
+    &__point {
+        height: 300px;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    &__img {
+        background: aliceblue;
+        height: 100%;
+        width: 48%;
+    }
+    &__point:nth-child(even) {
+        flex-flow: row-reverse;
+    }
+}
