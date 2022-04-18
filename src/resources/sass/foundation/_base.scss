@@ -7,27 +7,30 @@ $font-size_s: 12px;
 $font-size_m: 14px;
 $font-size_default: 16px;
 $font-size_l: 18px;
-$font-size_xl: 24px;
-$font-size_xxl: 30px;
+$font-size_xl: 20px;
+$font-size_xxl: 24px;
+$font-size_xxxl: 30px;
 $font-size_3l: 38px;
-$space_s: 5px;
-$space_m: 10px;
-$space_l: 15px;
-$space_xl: 20px;
-$space_xxl: 30px;
-$space_3l: 40px;
+$space_5: 5px;
+$space_10: 10px;
+$space_15: 15px;
+$space_20: 20px;
+$space_30: 30px;
+$space_40: 40px;
+$space_80: 80px;
 $font-family_corp: 'Amatic SC',
 cursive;
 // セクションのmargin
 .f-section {
-    margin-top: 120px;
-    margin-bottom: 20px;
+    margin-top: 150px;
+    margin-bottom: 30px;
 }
 
 // ヘッダー高さ
 $headerHeight: 60px;
 body {
     font-size: $font-size_default;
+    font-family: serif;
 }
 
 .f-inner {}
