@@ -1,19 +1,31 @@
 .l-header {
-    height: 60px;
-    background: azure;
-    border: solid;
+    height: $headerHeight;
+    background: $baseColor;
     &__inner {
         height: 100%;
         width: 100%;
         padding: 10px 0;
         box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
     }
     &__logo {
         height: 140%;
+        width: auto;
         position: relative;
         top: -8px;
     }
-    &__logo img {
-        height: 100%;
+    &__nav {
+        width: 280px;
+        display: flex;
+        align-items: center;
+        &--list {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        & a {
+            color: #fff;
+        }
     }
 }

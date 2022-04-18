@@ -1,0 +1,6 @@
+#l-hero {
+    width: 100vw;
+    height: calc(100vh - $headerHeight);
+    background-image: url(./../images/hero.jpg);
+    background-size: cover;
+}
