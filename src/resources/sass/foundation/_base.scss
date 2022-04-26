@@ -2,15 +2,15 @@
 // 変数
 // ==============================
 $font-color_default: #666;
-$baseColor: darkslategray;
+$baseColor: rgb(47, 79, 79);
 $font-size_s: 12px;
 $font-size_m: 14px;
 $font-size_default: 16px;
-$font-size_l: 18px;
 $font-size_xl: 20px;
 $font-size_xxl: 24px;
 $font-size_xxxl: 30px;
-$font-size_3l: 38px;
+$font-size_2l: 32px;
+$font-size_3l: 48px;
 $space_5: 5px;
 $space_10: 10px;
 $space_15: 15px;
@@ -23,7 +23,6 @@ cursive;
 // セクションのmargin
 .f-section {
     margin-top: 150px;
-    margin-bottom: 30px;
 }
 
 // ヘッダー高さ
@@ -31,6 +30,7 @@ $headerHeight: 60px;
 body {
     font-size: $font-size_default;
     font-family: serif;
+    background: #f5f5f5;
 }
 
 .f-inner {}

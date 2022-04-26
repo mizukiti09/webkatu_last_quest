@@ -1,31 +1,26 @@
 .l-header {
-    height: $headerHeight;
-    background: $baseColor;
-    &__inner {
-        height: 100%;
-        width: 100%;
-        padding: 10px 0;
-        box-sizing: border-box;
+    background-color: rgb(47, 79, 79, 0.85);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    &Inner {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        padding: 32px 40px;
+        margin: 0 auto;
+        max-width: 1200px;
     }
     &__logo {
-        height: 140%;
-        width: auto;
-        position: relative;
-        top: -8px;
+        color: #fff;
+        font-size: $font-size_xxl;
     }
-    &__nav {
-        width: 280px;
-        display: flex;
-        align-items: center;
-        &--list {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-        & a {
-            color: #fff;
-        }
+}
+
+@media screen and (max-width: 481px) {
+    .l-headerInner {
+        padding: 24px;
     }
 }
