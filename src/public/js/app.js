@@ -49795,6 +49795,40 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
+}); // ハンバーガーメニュ 
+
+$(".c-openbtn").on('click', function () {
+  $(this).toggleClass('active');
+  $(".c-nav").toggleClass('panelactive');
+});
+$(".c-nav a").on('click', function () {
+  $(".c-openbtn").removeClass('active');
+  $(".c-nav").removeClass('panelactive');
+});
+$('.top-p-top-img img:nth-child(n+2)').hide();
+setInterval(function () {
+  $(".top-p-top-img img:first-child").fadeOut(3000);
+  $(".top-p-top-img img:nth-child(2)").fadeIn(3000);
+  $(".top-p-top-img img:first-child").appendTo(".top-p-top-img");
+}, 6000);
+$(window).on('scroll', function () {
+  $('.u-fade-up , .u-fade-down , .u-fade-right').each(function () {
+    //ターゲットの位置を取得
+    var target = $(this).offset().top; //スクロール量を取得
+
+    var scroll = $(window).scrollTop(); //ウィンド高さ
+
+    var height = $(window).height();
+    var point = target - height; // 画面下部からのターゲットの位置
+    //ターゲットまでスクロールするとフェードインする
+
+    if (scroll > point && scroll < point + $(this).height() + height) {
+      //クラスを付与
+      $(this).addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
 });
 
 /***/ }),

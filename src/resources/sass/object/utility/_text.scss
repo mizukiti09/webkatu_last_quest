@@ -1,0 +1,27 @@
+.u-br {
+    display: none;
+}
+
+.u-catch {
+    margin: 36px 0 20px;
+    color: black;
+    font-size: $font-size_xxl;
+    & p {
+        font-weight: bold;
+    }
+    &-sub {
+        color: rgba(0, 0, 0, 0.54);
+        font-size: $font-size_default;
+        margin-bottom: 30px;
+        line-height: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 481px) {
+    .u-catch {
+        &-sub {
+            font-size: $font-size_default;
+            line-height: 2rem;
+        }
+    }
+}
