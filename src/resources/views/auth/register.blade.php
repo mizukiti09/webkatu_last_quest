@@ -1,66 +1,57 @@
 @extends('app') @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"> @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"> @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span> @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="c-contents u-inner">
+    <section class="c-form__container">
+        <div class="c-section__title">
+            <h1>{{ __('Register') }}</h1>
         </div>
-    </div>
+
+        <div class="c-form__list">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+
+                <div class="c-form__item">
+                    <label for="name" class="c-form__label">{{ __('Name') }}</label>
+                    <div class="c-form__body">
+                        @error('name')
+                        <span class="c-form__input--feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                        </span> @enderror
+                        <input id="name" type="text" class="c-form__input @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    </div>
+                </div>
+
+                <div class="c-form__item">
+                    <label for="email" class="c-form__label">{{ __('E-Mail Address') }}</label>
+                    <div class="c-form__body">
+                        @error('email')
+                        <span class="c-form__input--feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                        </span> @enderror
+                        <input id="email" type="text" class="c-form__input @error('name') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    </div>
+                </div>
+
+                <div class="c-form__item">
+                    <label for="password-confirm" class="c-form__label">{{ __('Confirm Password') }}</label>
+                    <div class="c-form__body">
+                        @error('password-confirm')
+                        <span class="c-form__input--feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                        </span> @enderror
+                        <input id="password-confirm" type="text" class="c-form__input @error('name') is-invalid @enderror" name="password-confirm" value="{{ old('password-confirm') }}" required autocomplete="password-confirm" autofocus>
+                    </div>
+                </div>
+
+                <div class="c-form__item">
+                    <button type="submit" class="c-form__button">
+                            {{ __('Register') }}
+                        </button>
+                </div>
+            </form>
+        </div>
+
+    </section>
 </div>
+
 @endsection

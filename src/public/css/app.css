@@ -304,6 +304,43 @@ body {
   background-color: rgb(47, 79, 79);
 }
 
+.c-form__button {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+}
+
+.c-contents {
+  margin-top: 280px !important;
+}
+
+.c-form__container {
+  margin-bottom: 100px;
+}
+.c-form__list {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.c-form__label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.c-form__item {
+  margin-bottom: 30px;
+}
+.c-form__input {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.c-form__input--feedback {
+  color: rgb(151, 31, 31);
+}
+
 .c-logo {
   color: white;
   font-size: 24px;
