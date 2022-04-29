@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/', 'HomeController@index')->name('home');
+Route::prefix('twitter')->group(function () {
+    Route::get('/', 'TwitterController@index')->name('twitter.index');
+});
