@@ -1,6 +1,6 @@
 @extends('app') @section('content')
 
-<div class="c-contents u-inner">
+<div class="c-contents">
     <section class="c-form__container">
         <div class="c-section__title">
             <h1>{{ __('Login') }}</h1>

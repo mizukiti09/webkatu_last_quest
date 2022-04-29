@@ -11,7 +11,7 @@
                     @endif @if (Route::has('register'))
                     <li class="c-nav__item"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @endif @else
-
+                    <li class="c-nav__item"><a href="{{ route('twitter.index') }}">{{ __('Twitter_Follow') }}</a></li>
                     <li class="c-nav__item"><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
        {{ __('Logout') }}
@@ -46,7 +46,7 @@
                         @endif @if (Route::has('register'))
                         <li class="c-nav__item"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @endif @else
-
+                        <li class="c-nav__item"><a href="{{ route('twitter.index') }}">{{ __('Twitter_Follow') }}</a></li>
                         <li class="c-nav__item"><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
        {{ __('Logout') }}
