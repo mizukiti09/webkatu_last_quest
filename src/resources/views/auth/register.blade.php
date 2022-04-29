@@ -28,29 +28,25 @@
                         <span class="c-form__input--feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                         </span> @enderror
-                        <input id="email" type="text" class="c-form__input @error('name') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="email" type="text" class="c-form__input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     </div>
                 </div>
 
                 <div class="c-form__item">
-                    <label for="password" class="c-form__label">{{ __('Confirm Password') }}</label>
+                    <label for="password" class="c-form__label">{{ __('Password') }}</label>
                     <div class="c-form__body">
                         @error('password')
                         <span class="c-form__input--feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                         </span> @enderror
-                        <input id="password" type="password" class="c-form__input @error('name') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
+                        <input id="password" type="password" class="c-form__input @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="new-password" autofocus>
                     </div>
                 </div>
 
                 <div class="c-form__item">
                     <label for="password-confirm" class="c-form__label">{{ __('Confirm Password') }}</label>
                     <div class="c-form__body">
-                        @error('password-confirm')
-                        <span class="c-form__input--feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                        </span> @enderror
-                        <input id="password-confirm" type="password" class="c-form__input @error('name') is-invalid @enderror" name="password-confirm" value="{{ old('password-confirm') }}" required autocomplete="password-confirm" autofocus>
+                        <input id="password-confirm" type="password" class="c-form__input" name="password_confirmation" value="{{ old('password_confirmation') }}" required autocomplete="new-password" autofocus>
                     </div>
                 </div>
 
