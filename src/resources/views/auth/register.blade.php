@@ -33,13 +33,24 @@
                 </div>
 
                 <div class="c-form__item">
+                    <label for="password" class="c-form__label">{{ __('Confirm Password') }}</label>
+                    <div class="c-form__body">
+                        @error('password')
+                        <span class="c-form__input--feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                        </span> @enderror
+                        <input id="password" type="password" class="c-form__input @error('name') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus>
+                    </div>
+                </div>
+
+                <div class="c-form__item">
                     <label for="password-confirm" class="c-form__label">{{ __('Confirm Password') }}</label>
                     <div class="c-form__body">
                         @error('password-confirm')
                         <span class="c-form__input--feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                         </span> @enderror
-                        <input id="password-confirm" type="text" class="c-form__input @error('name') is-invalid @enderror" name="password-confirm" value="{{ old('password-confirm') }}" required autocomplete="password-confirm" autofocus>
+                        <input id="password-confirm" type="password" class="c-form__input @error('name') is-invalid @enderror" name="password-confirm" value="{{ old('password-confirm') }}" required autocomplete="password-confirm" autofocus>
                     </div>
                 </div>
 
