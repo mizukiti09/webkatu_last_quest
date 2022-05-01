@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TwitterLoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::get('login/twitter', [TwitterLoginController::class, 'redirectToProvider']);
+Route::get('login/twitter/callback', [TwitterLoginController::class, 'handleProviderCallback']);
 
 Route::prefix('twitter')->group(function () {
     Route::get('/', 'TwitterController@index')->name('twitter.index');
