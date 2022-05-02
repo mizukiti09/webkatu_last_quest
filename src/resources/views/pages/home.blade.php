@@ -1,4 +1,5 @@
 @extends('app') @section('content') @include('layouts.hero')
+
 <div class="c-contents">
     <section class="p-problem f-section">
         <div class="c-section__title u-fade-down">
