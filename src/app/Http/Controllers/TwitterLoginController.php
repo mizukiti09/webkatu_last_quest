@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Facades\TwitterAuth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
-use SebastianBergmann\CliParser\Exception;
+use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
 
 class TwitterLoginController extends Controller
 {
@@ -19,26 +20,14 @@ class TwitterLoginController extends Controller
     }
 /**
  * Twitterからユーザー情報を取得(Callback先)
- *
- * @return \Illuminate\Http\Response
  */
-    public function handleProviderCallback()
+    public function handleProviderCallback(UserTwitterAuthRepositoryInterface $userRepository)
     {
-        try {
-            $twitterUser = Socialite::driver('twitter')->user();
-        } catch (Exception $e) {
-            return redirect('auth/twitter');
-        }
+        $twitterAuth = TwitterAuth::connect();
 
-        $user = Auth::user();
-        //ユーザーに必要な情報
-        $user->profile_photo_path = $twitterUser->getAvatar();
-        $user->twitter = true;
-        $user->nickname = $twitterUser->getNickname();
-        $user->save();
-
-        Log::info('Twitterから取得しました。', ['user' => $twitterUser]);
-        Auth::login($user);
+        $userRepository->save($twitterAuth);
+        Log::info('Twitterから取得しました。', ['user' => $twitterAuth]);
+        Auth::login(Auth::user());
         return redirect('/twitter');
     }
 }
