@@ -175,7 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         // TwitterAuth
-        App\Providers\TwitterAuthServiceProvider::class,
+        App\Providers\TwitterServiceProvider::class,
 
     ],
 
@@ -227,7 +227,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'TwitterAuth' => App\Facades\TwitterAuth::class,
+        'Twitter' => App\Facades\Twitter::class,
 
     ],
 
