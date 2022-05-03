@@ -4,10 +4,10 @@ namespace App\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class TwitterAuth extends Facade
+class Twitter extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'twitterAuth';
+        return 'twitter';
     }
 }

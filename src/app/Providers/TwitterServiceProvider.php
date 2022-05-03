@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
 use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
 
-class TwitterAuthServiceProvider extends ServiceProvider
+class TwitterServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -30,7 +30,7 @@ class TwitterAuthServiceProvider extends ServiceProvider
 
     private function registerForFacade()
     {
-        $this->app->bind('twitterAuth', 'App\Services\TwitterAuth');
+        $this->app->bind('twitter', 'App\Services\Twitter');
     }
     /**
      * 登録する必要のある全コンテナ結合
