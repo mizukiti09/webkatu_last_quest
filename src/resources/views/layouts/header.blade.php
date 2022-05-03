@@ -1,7 +1,7 @@
 <header class="l-header u-fade-down-header">
     <div class="l-headerInner">
         <div class="l-header__logo">
-            C Checker
+            <a href="{{ route('home') }}">C Checker</a>
         </div>
         <div id="u-device__desc">
             <nav>
@@ -11,7 +11,7 @@
                     @endif @if (Route::has('register'))
                     <li class="c-nav__item"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
                     @endif @else
-                    <li class="c-nav__item"><a href="{{ route('twitter.index') }}">{{ __('Twitter_Follow') }}</a></li>
+                    <li class="c-nav__item"><a href="{{ route('twitter.follow') }}">{{ __('Twitter_Follow') }}</a></li>
                     <li class="c-nav__item"><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
        {{ __('Logout') }}
@@ -33,7 +33,7 @@
         </div>
 
         <div id="u-device__sp">
-            <div class="c-openbtn">
+            <div class="c-btn-open">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -46,7 +46,7 @@
                         @endif @if (Route::has('register'))
                         <li class="c-nav__item"><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
                         @endif @else
-                        <li class="c-nav__item"><a href="{{ route('twitter.index') }}">{{ __('Twitter_Follow') }}</a></li>
+                        <li class="c-nav__item"><a href="{{ route('twitter.follow') }}">{{ __('Twitter_Follow') }}</a></li>
                         <li class="c-nav__item"><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
        {{ __('Logout') }}

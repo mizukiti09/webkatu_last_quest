@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('home');
 
 Auth::routes();
 
@@ -24,5 +24,5 @@ Route::get('login/twitter', 'TwitterLoginController@redirectToProvider');
 Route::get('login/twitter/callback', 'TwitterLoginController@handleProviderCallback');
 
 Route::prefix('twitter')->group(function () {
-    Route::get('/', 'TwitterFollowController@index')->name('twitter.index')->middleware('twitterAuth');
+    Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
 });

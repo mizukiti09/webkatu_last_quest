@@ -116,45 +116,42 @@
     }
 }
 
-.arrow-link {
-    font-size: $font-size_xxl;
+.p-follow {
+    &__account {
+        background: gainsboro;
+        margin-bottom: 30px;
+        padding: 20px;
+        display: flex;
+        &__container {
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+    }
+    &__info {
+        overflow-wrap: anywhere;
+        &:first-child {
+            margin-right: 20px;
+            min-width: 150px;
+            &>div {
+                margin-bottom: 5px;
+            }
+        }
+    }
+    &__avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: gray;
+    }
+    &__prof {
+        margin-bottom: 20px;
+    }
+    &__status {}
+    &__title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 }
-
-.other-link p {
-    text-align: right;
-    font-size: 1.5rem;
-    margin-top: 30px;
-    font-weight: bold;
-    position: relative;
-    right: 0;
-}
-
-.other-link a {
-    color: black;
-    transition: .2s;
-    position: absolute;
-    width: 100%;
-    right: 0;
-}
-
-.other-link a:hover {
-    position: absolute;
-    right: 0;
-    color: #2da690;
-    transition: .2s;
-}
-
-.other-link a:hover .kari {
-    position: absolute;
-    right: 0;
-}
-
-.other-link a:hover .other-link-arrow {
-    position: absolute;
-    right: -24px;
-}
-
-.other-link-arrow {}
 
 @media screen and (max-width: 481px) {
     .p-hero__logo {
@@ -198,6 +195,16 @@
             & a {
                 display: block;
                 padding: 24px;
+            }
+        }
+    }
+    .p-follow {
+        &__account {
+            display: block;
+        }
+        &__info {
+            &:first-child {
+                margin-bottom: 20px;
             }
         }
     }

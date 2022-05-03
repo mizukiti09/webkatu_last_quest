@@ -91,6 +91,7 @@ video {
 
 a {
   transition: 0.3s;
+  color: #fff;
 }
 
 a:hover {
@@ -154,9 +155,6 @@ body {
   width: 100%;
   background-color: #4D4D4D;
   font-size: 24px;
-  color: rgba(255, 255, 255, 0.87);
-}
-.l-footer a {
   color: rgba(255, 255, 255, 0.87);
 }
 .l-footer__wrapper {
@@ -259,7 +257,7 @@ body {
   font-size: 10px;
 }
 
-.c-openbtn {
+.c-btn-open {
   position: relative;
   z-index: 9999;
   /*ボタンを最前面に*/
@@ -267,7 +265,7 @@ body {
   width: 50px;
   height: 50px;
 }
-.c-openbtn span {
+.c-btn-open span {
   display: inline-block;
   transition: all 0.4s;
   position: absolute;
@@ -277,31 +275,51 @@ body {
   background-color: #fff;
   width: 60%;
 }
-.c-openbtn span:nth-of-type(1) {
+.c-btn-open span:nth-of-type(1) {
   top: 10px;
 }
-.c-openbtn span:nth-of-type(2) {
+.c-btn-open span:nth-of-type(2) {
   top: 23px;
 }
-.c-openbtn span:nth-of-type(3) {
+.c-btn-open span:nth-of-type(3) {
   top: 36px;
 }
-.c-openbtn.active span:nth-of-type(1) {
+.c-btn-open.active span:nth-of-type(1) {
   top: 18px;
   left: 18px;
   transform: translateY(6px) rotate(-45deg);
   width: 70%;
   background-color: rgb(47, 79, 79);
 }
-.c-openbtn.active span:nth-of-type(2) {
+.c-btn-open.active span:nth-of-type(2) {
   opacity: 0;
 }
-.c-openbtn.active span:nth-of-type(3) {
+.c-btn-open.active span:nth-of-type(3) {
   top: 30px;
   left: 18px;
   transform: translateY(-6px) rotate(45deg);
   width: 70%;
   background-color: rgb(47, 79, 79);
+}
+.c-btn-follow {
+  border-radius: 50%;
+  padding: 53px 14px;
+  font-size: 20px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0px 6px 8px grey;
+  transition: 0.3s;
+  font-family: cursive;
+  background: linear-gradient(45deg, gray, transparent);
+}
+.c-btn-follow:hover {
+  background: linear-gradient(45deg, rgb(39, 164, 77), transparent);
+  transition: 0.3s;
+}
+.c-btn-follow:active {
+  transition: 0.3s;
+  padding: 50px 11px;
+  box-shadow: none;
 }
 
 .c-form__button {
@@ -339,6 +357,14 @@ body {
 }
 .c-form__input--feedback {
   color: rgb(151, 31, 31);
+}
+
+.c-page__description {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.c-page__description h2 {
+  font-size: 20px;
 }
 
 .c-logo {
@@ -394,9 +420,6 @@ body {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.c-nav__item a {
-  color: #fff;
-}
 .c-nav.panelactive {
   right: 0;
 }
@@ -417,7 +440,6 @@ body {
   list-style: none;
 }
 .c-nav li a {
-  color: #fff;
   text-decoration: none;
   padding: 10px;
   padding-bottom: 30px;
@@ -550,42 +572,38 @@ body {
   margin-bottom: 0;
 }
 
-.arrow-link {
-  font-size: 24px;
+.p-follow__account {
+  background: gainsboro;
+  margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
 }
-
-.other-link p {
-  text-align: right;
-  font-size: 1.5rem;
-  margin-top: 30px;
+.p-follow__account__container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.p-follow__info {
+  overflow-wrap: anywhere;
+}
+.p-follow__info:first-child {
+  margin-right: 20px;
+  min-width: 150px;
+}
+.p-follow__info:first-child > div {
+  margin-bottom: 5px;
+}
+.p-follow__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: gray;
+}
+.p-follow__prof {
+  margin-bottom: 20px;
+}
+.p-follow__title {
   font-weight: bold;
-  position: relative;
-  right: 0;
-}
-
-.other-link a {
-  color: black;
-  transition: 0.2s;
-  position: absolute;
-  width: 100%;
-  right: 0;
-}
-
-.other-link a:hover {
-  position: absolute;
-  right: 0;
-  color: #2da690;
-  transition: 0.2s;
-}
-
-.other-link a:hover .kari {
-  position: absolute;
-  right: 0;
-}
-
-.other-link a:hover .other-link-arrow {
-  position: absolute;
-  right: -24px;
+  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 481px) {
@@ -630,6 +648,13 @@ body {
   .p-service__description a {
     display: block;
     padding: 24px;
+  }
+
+  .p-follow__account {
+    display: block;
+  }
+  .p-follow__info:first-child {
+    margin-bottom: 20px;
   }
 }
 @media screen and (max-width: 768px) {

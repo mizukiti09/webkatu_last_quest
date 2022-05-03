@@ -1,4 +1,4 @@
-@extends('app') @section('content') @include('layouts.hero')
+@section('title', 'C Checker')@extends('app') @section('content') @include('layouts.hero')
 
 <div class="c-contents">
     <section class="p-problem f-section">
