@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Facades\TwitterAuth;
+use App\Facades\Twitter;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
@@ -23,11 +23,11 @@ class TwitterLoginController extends Controller
  */
     public function handleProviderCallback(UserTwitterAuthRepositoryInterface $userRepository)
     {
-        $twitterAuth = TwitterAuth::connect();
+        $twitterAuth = Twitter::connectUserAuth();
 
         $userRepository->save($twitterAuth);
         Log::info('Twitterから取得しました。', ['user' => $twitterAuth]);
         Auth::login(Auth::user());
-        return redirect('/twitter');
+        return redirect('/twitter/follow');
     }
 }
