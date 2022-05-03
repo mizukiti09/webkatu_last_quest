@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class TwitterController extends Controller
+class TwitterFollowController extends Controller
 {
     public function index()
     {
+
         return view('pages.twitter.follow');
     }
 }

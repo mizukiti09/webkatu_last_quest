@@ -49797,12 +49797,12 @@ var app = new Vue({
   el: '#app'
 }); // ハンバーガーメニュ 
 
-$(".c-openbtn").on('click', function () {
+$(".c-btn-open").on('click', function () {
   $(this).toggleClass('active');
   $(".c-nav").toggleClass('panelactive');
 });
 $(".c-nav a").on('click', function () {
-  $(".c-openbtn").removeClass('active');
+  $(".c-btn-open").removeClass('active');
   $(".c-nav").removeClass('panelactive');
 });
 $('.top-p-top-img img:nth-child(n+2)').hide();

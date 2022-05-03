@@ -28,11 +28,6 @@
         overflow: auto;
         -webkit-overflow-scrolling: touch;
     }
-    &__item {
-        & a {
-            color: #fff;
-        }
-    }
     &.panelactive {
         right: 0;
         & .c-nav__list {
@@ -54,7 +49,6 @@
     & li {
         list-style: none;
         & a {
-            color: #fff;
             text-decoration: none;
             padding: 10px;
             padding-bottom: 30px;
