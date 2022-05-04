@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-use Exception;
 use Laravel\Socialite\Facades\Socialite;
 
 class Twitter
@@ -23,12 +22,8 @@ class Twitter
 
     public function connectUserAuth()
     {
-        try {
-            $twitterUser = Socialite::driver('twitter')->user();
-            return $twitterUser;
-        } catch (Exception $e) {
-            return redirect('auth/twitter');
-        }
+        $twitterUser = Socialite::driver('twitter')->user();
+        return $twitterUser;
     }
 
     public function followAccount()
@@ -37,6 +32,5 @@ class Twitter
         $accounts = $connection->get('users/search', array("q" => "仮想通貨", "count" => 15));
 
         return $accounts;
-
     }
 }
