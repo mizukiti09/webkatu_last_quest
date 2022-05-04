@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+require('./device_sp');
+require('./fade');
 
 window.Vue = require('vue');
 
@@ -19,8 +21,9 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,51 +32,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
-});
-
-
-
-
-// ハンバーガーメニュ 
-$(".c-btn-open").on('click', function() {
-    $(this).toggleClass('active');
-    $(".c-nav").toggleClass('panelactive');
-});
-
-$(".c-nav a").on('click', function() {
-    $(".c-btn-open").removeClass('active');
-    $(".c-nav").removeClass('panelactive');
-});
-
-
-
-$('.top-p-top-img img:nth-child(n+2)').hide();
-
-setInterval(function() {
-    $(".top-p-top-img img:first-child").fadeOut(3000);
-    $(".top-p-top-img img:nth-child(2)").fadeIn(3000);
-    $(".top-p-top-img img:first-child").appendTo(".top-p-top-img");
-}, 6000);
-
-
-$(window).on('scroll', function() {
-    $('.u-fade-up , .u-fade-down , .u-fade-right').each(function() {
-        //ターゲットの位置を取得
-        var target = $(this).offset().top;
-        //スクロール量を取得
-        var scroll = $(window).scrollTop();
-        //ウィンド高さ
-        var height = $(window).height();
-
-        var point = target - height; // 画面下部からのターゲットの位置
-
-
-        //ターゲットまでスクロールするとフェードインする
-        if (scroll > point && scroll < (point + $(this).height() + height)) {
-            //クラスを付与
-            $(this).addClass('active');
-        } else {
-            $(this).removeClass('active');
-        }
-    });
 });
