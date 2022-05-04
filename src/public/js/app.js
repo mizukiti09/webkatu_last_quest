@@ -1899,15 +1899,31 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37503,10 +37519,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37525,19 +37541,51 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
+    return _c("div", { staticClass: "p-follow__account" }, [
+      _c("div", { staticClass: "p-follow__info" }, [
+        _c("div", { staticClass: "p-follow__avatar" }, [
+          _c("img", { attrs: { src: "", alt: "" } }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-follow__name" }, [_vm._v("銀二")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-follow__nickname" }, [
+          _vm._v("@mizukiti_mind"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-follow__status" }, [
+          _c("div", { staticClass: "p-follow__followCount" }, [
+            _vm._v("100 フォロー中"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__followerCount" }, [
+            _vm._v("200 フォロワー数"),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-follow__info" }, [
+        _c("div", { staticClass: "p-follow__prof" }, [
+          _c("div", { staticClass: "p-follow__title" }, [
+            _vm._v("\n                プロフィール\n            "),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "リードに繋がれたペット(お金を貰ってる人間) ではなく ▶️ 飼い主 (お金を稼いでいる人間) になる努力を、 経歴《ベーシスト、ホームレス、スカウト業 、 webエンジニア》 25age"
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-follow__tweet" }, [
+          _c("div", { staticClass: "p-follow__title" }, [
+            _vm._v("\n                最新のツイート\n            "),
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.\n                tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.\n            "
+            ),
           ]),
         ]),
       ]),
@@ -49775,6 +49823,10 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./device_sp */ "./resources/js/device_sp.js");
+
+__webpack_require__(/*! ./fade */ "./resources/js/fade.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49785,8 +49837,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49795,40 +49848,6 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-}); // ハンバーガーメニュ 
-
-$(".c-btn-open").on('click', function () {
-  $(this).toggleClass('active');
-  $(".c-nav").toggleClass('panelactive');
-});
-$(".c-nav a").on('click', function () {
-  $(".c-btn-open").removeClass('active');
-  $(".c-nav").removeClass('panelactive');
-});
-$('.top-p-top-img img:nth-child(n+2)').hide();
-setInterval(function () {
-  $(".top-p-top-img img:first-child").fadeOut(3000);
-  $(".top-p-top-img img:nth-child(2)").fadeIn(3000);
-  $(".top-p-top-img img:first-child").appendTo(".top-p-top-img");
-}, 6000);
-$(window).on('scroll', function () {
-  $('.u-fade-up , .u-fade-down , .u-fade-right').each(function () {
-    //ターゲットの位置を取得
-    var target = $(this).offset().top; //スクロール量を取得
-
-    var scroll = $(window).scrollTop(); //ウィンド高さ
-
-    var height = $(window).height();
-    var point = target - height; // 画面下部からのターゲットの位置
-    //ターゲットまでスクロールするとフェードインする
-
-    if (scroll > point && scroll < point + $(this).height() + height) {
-      //クラスを付与
-      $(this).addClass('active');
-    } else {
-      $(this).removeClass('active');
-    }
-  });
 });
 
 /***/ }),
@@ -49878,17 +49897,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue ***!
-  \******************************************************/
+/***/ "./resources/js/components/TwitterAccountFollow.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TwitterAccountFollow.vue ***!
+  \**********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterAccountFollow.vue?vue&type=template&id=52fdb014& */ "./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014&");
+/* harmony import */ var _TwitterAccountFollow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterAccountFollow.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -49898,9 +49917,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TwitterAccountFollow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -49910,40 +49929,88 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/ExampleComponent.vue"
+component.options.__file = "resources/js/components/TwitterAccountFollow.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAccountFollow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014& ***!
+  \*****************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAccountFollow.vue?vue&type=template&id=52fdb014& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/device_sp.js":
+/*!***********************************!*\
+  !*** ./resources/js/device_sp.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// ハンバーガーメニュ 
+$(".c-btn-open").on('click', function () {
+  $(this).toggleClass('active');
+  $(".c-nav").toggleClass('panelactive');
+});
+$(".c-nav a").on('click', function () {
+  $(".c-btn-open").removeClass('active');
+  $(".c-nav").removeClass('panelactive');
+});
+
+/***/ }),
+
+/***/ "./resources/js/fade.js":
+/*!******************************!*\
+  !*** ./resources/js/fade.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(window).on('scroll', function () {
+  $('.u-fade-up , .u-fade-down , .u-fade-right').each(function () {
+    //ターゲットの位置を取得
+    var target = $(this).offset().top; //スクロール量を取得
+
+    var scroll = $(window).scrollTop(); //ウィンド高さ
+
+    var height = $(window).height();
+    var point = target - height; // 画面下部からのターゲットの位置
+    //ターゲットまでスクロールするとフェードインする
+
+    if (scroll > point && scroll < point + $(this).height() + height) {
+      //クラスを付与
+      $(this).addClass('active');
+    } else {
+      $(this).removeClass('active');
+    }
+  });
+});
 
 /***/ }),
 
