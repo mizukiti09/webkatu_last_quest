@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
+
 class TwitterFollowController extends Controller
 {
-    public function index()
+    public function index(TwitterFollowPresenterInterface $presenter)
     {
-        return view('pages.twitter.follow');
+        $presenter->handle();
     }
 }

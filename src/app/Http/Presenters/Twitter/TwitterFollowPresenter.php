@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Presenters\Twitter;
+
+use App\Facades\Twitter;
+use App\Http\Middleware\CleanArchitectureMiddleware;
+use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
+
+class TwitterFollowPresenter implements TwitterFollowPresenterInterface
+{
+    public function handle()
+    {
+        $accounts = Twitter::followAccounts();
+        CleanArchitectureMiddleware::$view = view('pages.twitter.follow', compact('accounts'));
+
+    }
+}
