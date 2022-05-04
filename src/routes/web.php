@@ -20,8 +20,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('login/twitter', 'TwitterLoginController@redirectToProvider');
-Route::get('login/twitter/callback', 'TwitterLoginController@handleProviderCallback');
+Route::get('login/twitter', 'TwitterLoginController@redirectToProvider')->name('login.twitter');
+Route::get('login/twitter/callback', 'TwitterLoginController@handleProviderCallback')->name('login.twitter.callback');
 
 Route::prefix('twitter')->group(function () {
     Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
