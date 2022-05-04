@@ -19,9 +19,9 @@ define('LARAVEL_START', microtime(true));
 | into the script here so that we don't have to problem about manual
 | loading any of our classes later on. It feels great to relax.
 |
-*/
+ */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +33,9 @@ require __DIR__.'/../vendor/autoload.php';
 | will load up this application so that we can run it and send
 | the responses back to the browser and delight our users.
 |
-*/
+ */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -47,14 +47,18 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | the client's browser allowing them to enjoy the creative
 | and wonderful application we have prepared for them.
 |
-*/
+ */
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-$response = $kernel->handle(
+$kernelResponse = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 
+$view = \App\Http\Middleware\CleanArchitectureMiddleware::$view; // 格納された view 関数の結果を取り出して
+$response = $view !== null// データが存在してたら
+ ? new \Symfony\Component\HttpFoundation\Response($view) // そのデータをレスポンスに
+ : $kernelResponse; // さもなければ通常のレスポンスを利用
 $response->send();
 
 $kernel->terminate($request, $response);

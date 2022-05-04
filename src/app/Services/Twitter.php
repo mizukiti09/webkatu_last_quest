@@ -26,7 +26,7 @@ class Twitter
         return $twitterUser;
     }
 
-    public function followAccount()
+    public function followAccounts()
     {
         $connection = new TwitterOAuth($this->client_id, $this->client_secret, $this->access_token, $this->access_token_secret);
         $accounts = $connection->get('users/search', array("q" => "仮想通貨", "count" => 15));

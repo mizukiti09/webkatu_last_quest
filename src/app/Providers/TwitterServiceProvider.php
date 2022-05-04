@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Presenters\Twitter\TwitterFollowPresenter;
 use Illuminate\Support\ServiceProvider;
 use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
 use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
+use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
 
 class TwitterServiceProvider extends ServiceProvider
 {
@@ -39,5 +41,6 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public $bindings = [
         UserTwitterAuthRepositoryInterface::class => UserTwitterAuthRepository::class,
+        TwitterFollowPresenterInterface::class => TwitterFollowPresenter::class,
     ];
 }
