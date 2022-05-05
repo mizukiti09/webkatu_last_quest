@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
+use App\Http\Middleware\CleanArchitectureMiddleware;
 
 class TwitterFollowController extends Controller
 {
-    public function index(TwitterFollowPresenterInterface $presenter)
+    // public function index(TwitterFollowPresenterInterface $presenter)
+    // {
+    //     $presenter->handle();
+    // }
+    public function index()
     {
-        $presenter->handle();
+        CleanArchitectureMiddleware::$view = view('pages.twitter.follow');
     }
 }
