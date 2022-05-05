@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Http\Presenters\Twitter\TwitterFollowPresenter;
+use App\Http\ViewComposers\TwitterFollowAccountComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
 use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
@@ -27,7 +29,9 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composers([
+            TwitterFollowAccountComposer::class => 'pages.twitter.*',
+        ]);
     }
 
     private function registerForFacade()
