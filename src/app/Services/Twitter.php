@@ -31,7 +31,7 @@ class Twitter
         $connection = new TwitterOAuth($this->client_id, $this->client_secret, $this->access_token, $this->access_token_secret);
         $accounts = $connection->get('users/search', array(
             "q" => "仮想通貨",
-            "page" => 51,
+            "page" => 1,
             "count" => 20,
             "tweet_mode" => "extended",
             "include_entities" => true,
