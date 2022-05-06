@@ -17,9 +17,7 @@
           </button>
 
         <div class="p-follow__account__container">
-            <twitter-account></twitter-account>
-            <div class="p-follow__account">
-            </div>
+            <twitter-account :accounts="{{ json_encode($accounts) }}"></twitter-account>
         </div>
     </section>
 

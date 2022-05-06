@@ -1940,10 +1940,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
+  props: ['accounts']
 });
 
 /***/ }),
@@ -37534,64 +37541,90 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.accounts, function (data, i) {
+      return _c("div", { key: i, staticClass: "p-follow__account" }, [
+        _c("div", { staticClass: "p-follow__info" }, [
+          _c("div", { staticClass: "p-follow__avatar" }, [
+            _c(
+              "a",
+              { attrs: { href: "https://twitter.com/" + data.screen_name } },
+              [
+                _c("img", {
+                  staticClass: "u-img",
+                  attrs: {
+                    src: data.profile_image_url.replace("_normal.", "."),
+                    alt: "",
+                  },
+                }),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__name u-border-b" }, [
+            _vm._v(_vm._s(data.name)),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__nickname u-border-b" }, [
+            _vm._v("@" + _vm._s(data.screen_name)),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__status" }, [
+            _c("div", { staticClass: "p-follow__followCount" }, [
+              _vm._v(_vm._s(data.friends_count) + " フォロー中"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__followerCount" }, [
+              _vm._v(_vm._s(data.followers_count) + " フォロワー数"),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "p-follow__info" }, [
+          _c("div", { staticClass: "p-follow__prof" }, [
+            _c("div", { staticClass: "p-follow__title u-border-b" }, [
+              _vm._v("\n                    プロフィール\n                "),
+            ]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(data.description))]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__tweet" }, [
+            _c("div", { staticClass: "p-follow__title u-border-b" }, [
+              _vm._v("\n                    最新のツイート\n                "),
+            ]),
+            _vm._v(" "),
+            data.status.retweeted_status
+              ? _c("div", [
+                  _vm._v(_vm._s(data.status.retweeted_status.full_text)),
+                ])
+              : _c("div", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(data.status.full_text) +
+                      "\n\n                    "
+                  ),
+                  data.status.entities.media
+                    ? _c("div", { staticClass: "p-follow__tweet__img" }, [
+                        _c("img", {
+                          staticClass: "u-img",
+                          attrs: {
+                            src: data.status.entities.media[0].media_url_https,
+                            alt: "",
+                          },
+                        }),
+                      ])
+                    : _vm._e(),
+                ]),
+          ]),
+        ]),
+      ])
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-follow__account" }, [
-      _c("div", { staticClass: "p-follow__info" }, [
-        _c("div", { staticClass: "p-follow__avatar" }, [
-          _c("img", { attrs: { src: "", alt: "" } }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__name" }, [_vm._v("銀二")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__nickname" }, [
-          _vm._v("@mizukiti_mind"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__status" }, [
-          _c("div", { staticClass: "p-follow__followCount" }, [
-            _vm._v("100 フォロー中"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-follow__followerCount" }, [
-            _vm._v("200 フォロワー数"),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-follow__info" }, [
-        _c("div", { staticClass: "p-follow__prof" }, [
-          _c("div", { staticClass: "p-follow__title" }, [
-            _vm._v("\n                プロフィール\n            "),
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "リードに繋がれたペット(お金を貰ってる人間) ではなく ▶️ 飼い主 (お金を稼いでいる人間) になる努力を、 経歴《ベーシスト、ホームレス、スカウト業 、 webエンジニア》 25age"
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__tweet" }, [
-          _c("div", { staticClass: "p-follow__title" }, [
-            _vm._v("\n                最新のツイート\n            "),
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.\n                tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.\n            "
-            ),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49848,6 +49881,11 @@ Vue.component('twitter-account', __webpack_require__(/*! ./components/TwitterAcc
 
 var app = new Vue({
   el: '#app'
+}); // ハンバーガーメニュ 
+
+$(".c-btn-open").on('click', function () {
+  $(this).toggleClass('active');
+  $(".c-nav").toggleClass('panelactive');
 });
 
 /***/ }),

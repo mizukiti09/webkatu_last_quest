@@ -24,6 +24,7 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,4 +33,11 @@ Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue'
 
 const app = new Vue({
     el: '#app',
+});
+
+
+// ハンバーガーメニュ 
+$(".c-btn-open").on('click', function() {
+    $(this).toggleClass('active');
+    $(".c-nav").toggleClass('panelactive');
 });

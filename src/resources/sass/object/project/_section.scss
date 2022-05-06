@@ -122,6 +122,7 @@
         margin-bottom: 30px;
         padding: 20px;
         display: flex;
+        line-height: 25px;
         &__container {
             margin-top: 80px;
             margin-bottom: 80px;
@@ -140,16 +141,24 @@
     &__avatar {
         width: 100px;
         height: 100px;
-        border-radius: 50%;
-        background: gray;
+        & .u-img {
+            border-radius: 50%;
+        }
     }
     &__prof {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
     &__status {}
     &__title {
         font-weight: bold;
         margin-bottom: 5px;
+    }
+    &__tweet {
+        &__img {
+            height: 300px;
+            width: 450px;
+            margin-top: 20px;
+        }
     }
 }
 

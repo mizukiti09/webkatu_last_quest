@@ -29,7 +29,13 @@ class Twitter
     public function followAccounts()
     {
         $connection = new TwitterOAuth($this->client_id, $this->client_secret, $this->access_token, $this->access_token_secret);
-        $accounts = $connection->get('users/search', array("q" => "仮想通貨", "count" => 15));
+        $accounts = $connection->get('users/search', array(
+            "q" => "仮想通貨",
+            "page" => 1,
+            "count" => 20,
+            "tweet_mode" => "extended",
+            "include_entities" => true,
+        ));
 
         return $accounts;
     }

@@ -3,9 +3,14 @@
 namespace App\Providers;
 
 use App\Http\Presenters\Twitter\TwitterFollowPresenter;
+use App\Http\ViewComposers\TwitterFollowAccountComposer;
+use App\Http\ViewComposers\UserComposer;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use packages\Domain\Application\Twitter\TwitterAuthInteractor;
 use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
 use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
+use packages\UseCase\Twitter\Auth\TwitterAuthUseCaseInterface;
 use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
 
 class TwitterServiceProvider extends ServiceProvider
@@ -27,7 +32,10 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composers([
+            TwitterFollowAccountComposer::class => 'pages.twitter.*',
+            UserComposer::class => 'app',
+        ]);
     }
 
     private function registerForFacade()
@@ -42,5 +50,6 @@ class TwitterServiceProvider extends ServiceProvider
     public $bindings = [
         UserTwitterAuthRepositoryInterface::class => UserTwitterAuthRepository::class,
         TwitterFollowPresenterInterface::class => TwitterFollowPresenter::class,
+        TwitterAuthUseCaseInterface::class => TwitterAuthInteractor::class,
     ];
 }

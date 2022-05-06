@@ -22,4 +22,27 @@ class UserTwitterAuthRepository implements UserTwitterAuthRepositoryInterface
             ]);
     }
 
+    public function find()
+    {
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->where('twitter', 1)
+            ->select([
+                'twitter',
+                'nickname',
+                'profile_photo_path',
+            ])
+            ->get();
+    }
+
+    public function logout()
+    {
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->where('twitter', 1)
+            ->update([
+                'twitter' => false,
+            ]);
+    }
+
 }
