@@ -155,8 +155,9 @@
     }
     &__tweet {
         &__img {
-            height: 300px;
-            width: 450px;
+            display: table;
+            max-width: 450px;
+            max-height: 300px;
             margin-top: 20px;
         }
     }

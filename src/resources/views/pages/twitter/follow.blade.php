@@ -12,9 +12,9 @@
         </div>
 
 
-        <button class="c-btn-follow" type="submit">
+        <button class="c-btn-autoFollow" type="submit">
             Follow Start !!
-          </button>
+        </button>
 
         <div class="p-follow__account__container">
             <twitter-account :accounts="{{ json_encode($accounts) }}"></twitter-account>

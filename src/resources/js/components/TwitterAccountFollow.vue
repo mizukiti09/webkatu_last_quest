@@ -4,8 +4,8 @@
             <div class="p-follow__info">
                 <div class="p-follow__avatar">
                     <a :href="'https://twitter.com/' + data.screen_name">
-                        <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
-                    </a>
+                                    <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
+                                </a>
                 </div>
                 <div class="p-follow__name u-border-b">{{ data.name }}</div>
                 <div class="p-follow__nickname u-border-b">@{{ data.screen_name }}</div>
@@ -13,6 +13,8 @@
                     <div class="p-follow__followCount">{{ data.friends_count }} フォロー中</div>
                     <div class="p-follow__followerCount">{{ data.followers_count }} フォロワー数</div>
                 </div>
+    
+                <button class="c-btn-follow" v-on:click="follow(data.id)">フォロー</button>
             </div>
             <div class="p-follow__info">
                 <div class="p-follow__prof">
@@ -42,5 +44,27 @@
 <script>
 export default {
     props: ['accounts'],
+    data: function() {
+        return {
+
+        }
+    },
+    methods: {
+        follow: function($userId) {
+            const formData = new FormData()
+
+            formData.append('userId', $userId)
+            console.log($userId)
+            this.$axios.post('/api/twitter/follow', formData)
+                .then((res) => {
+                    console.log(res)
+                })
+                .catch((error) => {
+                    console.log('followは正常に起動していません。')
+                    console.log(error)
+                })
+        }
+
+    },
 }
 </script>

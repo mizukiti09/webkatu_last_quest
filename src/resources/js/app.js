@@ -8,7 +8,12 @@ require('./bootstrap');
 require('./device_sp');
 require('./fade');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+import axios from 'axios';
+
+
+
+Vue.prototype.$axios = axios;
 
 /**
  * The following block of code may be used to automatically register your
