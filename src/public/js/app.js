@@ -1949,8 +1949,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['accounts']
+  props: ['accounts'],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    follow: function follow($userId) {
+      var formData = new FormData();
+      formData.append('userId', $userId);
+      console.log($userId);
+      this.$axios.post('/api/twitter/follow', formData).then(function (res) {
+        console.log(res);
+      })["catch"](function (error) {
+        console.log('followは正常に起動していません。');
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -37579,6 +37597,19 @@ var render = function () {
               _vm._v(_vm._s(data.followers_count) + " フォロワー数"),
             ]),
           ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "c-btn-follow",
+              on: {
+                click: function ($event) {
+                  return _vm.follow(data.id)
+                },
+              },
+            },
+            [_vm._v("フォロー")]
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "p-follow__info" }, [
@@ -49846,9 +49877,15 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49860,7 +49897,9 @@ __webpack_require__(/*! ./device_sp */ "./resources/js/device_sp.js");
 
 __webpack_require__(/*! ./fade */ "./resources/js/fade.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$axios = axios__WEBPACK_IMPORTED_MODULE_1___default.a;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -49872,14 +49911,14 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
 }); // ハンバーガーメニュ 
 
