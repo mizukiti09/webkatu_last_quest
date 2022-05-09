@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="p-follow__account" v-for="(data, i) in accounts" :key="i">
+        <div class="p-follow__account" v-for="(data, i) in accounts" :key="i" ref="account">
             <div class="p-follow__info">
                 <div class="p-follow__avatar">
                     <a :href="'https://twitter.com/' + data.screen_name">
-                                    <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
-                                </a>
+                                        <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
+                                    </a>
                 </div>
                 <div class="p-follow__name u-border-b">{{ data.name }}</div>
                 <div class="p-follow__nickname u-border-b">@{{ data.screen_name }}</div>
@@ -14,7 +14,7 @@
                     <div class="p-follow__followerCount">{{ data.followers_count }} フォロワー数</div>
                 </div>
     
-                <button class="c-btn-follow" v-on:click="follow(data.id)">フォロー</button>
+                <button class="c-btn-follow" v-on:click="follow(data.screen_name, i)">フォロー</button>
             </div>
             <div class="p-follow__info">
                 <div class="p-follow__prof">
@@ -46,18 +46,28 @@ export default {
     props: ['accounts'],
     data: function() {
         return {
-
+           
         }
     },
     methods: {
-        follow: function($userId) {
+        onActive(i) {
+            if (this.followed === i) {
+                this.followed = null;
+            } else {
+                this.followed = i;
+            }
+        },
+        follow: function($nickname, $key) {
             const formData = new FormData()
 
-            formData.append('userId', $userId)
-            console.log($userId)
+
+            formData.append('nickname', $nickname)
+            console.log($nickname)
             this.$axios.post('/api/twitter/follow', formData)
                 .then((res) => {
                     console.log(res)
+                    var ref = this.$refs.account[$key]
+                    ref.style.display = 'none'
                 })
                 .catch((error) => {
                     console.log('followは正常に起動していません。')

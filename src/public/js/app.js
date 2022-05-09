@@ -1957,12 +1957,23 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {
-    follow: function follow($userId) {
+    onActive: function onActive(i) {
+      if (this.followed === i) {
+        this.followed = null;
+      } else {
+        this.followed = i;
+      }
+    },
+    follow: function follow($nickname, $key) {
+      var _this = this;
+
       var formData = new FormData();
-      formData.append('userId', $userId);
-      console.log($userId);
+      formData.append('nickname', $nickname);
+      console.log($nickname);
       this.$axios.post('/api/twitter/follow', formData).then(function (res) {
         console.log(res);
+        var ref = _this.$refs.account[$key];
+        ref.style.display = 'none';
       })["catch"](function (error) {
         console.log('followは正常に起動していません。');
         console.log(error);
@@ -37562,95 +37573,107 @@ var render = function () {
   return _c(
     "div",
     _vm._l(_vm.accounts, function (data, i) {
-      return _c("div", { key: i, staticClass: "p-follow__account" }, [
-        _c("div", { staticClass: "p-follow__info" }, [
-          _c("div", { staticClass: "p-follow__avatar" }, [
+      return _c(
+        "div",
+        {
+          key: i,
+          ref: "account",
+          refInFor: true,
+          staticClass: "p-follow__account",
+        },
+        [
+          _c("div", { staticClass: "p-follow__info" }, [
+            _c("div", { staticClass: "p-follow__avatar" }, [
+              _c(
+                "a",
+                { attrs: { href: "https://twitter.com/" + data.screen_name } },
+                [
+                  _c("img", {
+                    staticClass: "u-img",
+                    attrs: {
+                      src: data.profile_image_url.replace("_normal.", "."),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__name u-border-b" }, [
+              _vm._v(_vm._s(data.name)),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__nickname u-border-b" }, [
+              _vm._v("@" + _vm._s(data.screen_name)),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__status" }, [
+              _c("div", { staticClass: "p-follow__followCount" }, [
+                _vm._v(_vm._s(data.friends_count) + " フォロー中"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-follow__followerCount" }, [
+                _vm._v(_vm._s(data.followers_count) + " フォロワー数"),
+              ]),
+            ]),
+            _vm._v(" "),
             _c(
-              "a",
-              { attrs: { href: "https://twitter.com/" + data.screen_name } },
-              [
-                _c("img", {
-                  staticClass: "u-img",
-                  attrs: {
-                    src: data.profile_image_url.replace("_normal.", "."),
-                    alt: "",
+              "button",
+              {
+                staticClass: "c-btn-follow",
+                on: {
+                  click: function ($event) {
+                    return _vm.follow(data.screen_name, i)
                   },
-                }),
-              ]
+                },
+              },
+              [_vm._v("フォロー")]
             ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "p-follow__name u-border-b" }, [
-            _vm._v(_vm._s(data.name)),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-follow__nickname u-border-b" }, [
-            _vm._v("@" + _vm._s(data.screen_name)),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-follow__status" }, [
-            _c("div", { staticClass: "p-follow__followCount" }, [
-              _vm._v(_vm._s(data.friends_count) + " フォロー中"),
+          _c("div", { staticClass: "p-follow__info" }, [
+            _c("div", { staticClass: "p-follow__prof" }, [
+              _c("div", { staticClass: "p-follow__title u-border-b" }, [
+                _vm._v("\n                    プロフィール\n                "),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(data.description))]),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "p-follow__followerCount" }, [
-              _vm._v(_vm._s(data.followers_count) + " フォロワー数"),
+            _c("div", { staticClass: "p-follow__tweet" }, [
+              _c("div", { staticClass: "p-follow__title u-border-b" }, [
+                _vm._v(
+                  "\n                    最新のツイート\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              data.status.retweeted_status
+                ? _c("div", [
+                    _vm._v(_vm._s(data.status.retweeted_status.full_text)),
+                  ])
+                : _c("div", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.status.full_text) +
+                        "\n\n                    "
+                    ),
+                    data.status.entities.media
+                      ? _c("div", { staticClass: "p-follow__tweet__img" }, [
+                          _c("img", {
+                            staticClass: "u-img",
+                            attrs: {
+                              src: data.status.entities.media[0]
+                                .media_url_https,
+                              alt: "",
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                  ]),
             ]),
           ]),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "c-btn-follow",
-              on: {
-                click: function ($event) {
-                  return _vm.follow(data.id)
-                },
-              },
-            },
-            [_vm._v("フォロー")]
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__info" }, [
-          _c("div", { staticClass: "p-follow__prof" }, [
-            _c("div", { staticClass: "p-follow__title u-border-b" }, [
-              _vm._v("\n                    プロフィール\n                "),
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(data.description))]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-follow__tweet" }, [
-            _c("div", { staticClass: "p-follow__title u-border-b" }, [
-              _vm._v("\n                    最新のツイート\n                "),
-            ]),
-            _vm._v(" "),
-            data.status.retweeted_status
-              ? _c("div", [
-                  _vm._v(_vm._s(data.status.retweeted_status.full_text)),
-                ])
-              : _c("div", [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.status.full_text) +
-                      "\n\n                    "
-                  ),
-                  data.status.entities.media
-                    ? _c("div", { staticClass: "p-follow__tweet__img" }, [
-                        _c("img", {
-                          staticClass: "u-img",
-                          attrs: {
-                            src: data.status.entities.media[0].media_url_https,
-                            alt: "",
-                          },
-                        }),
-                      ])
-                    : _vm._e(),
-                ]),
-          ]),
-        ]),
-      ])
+        ]
+      )
     }),
     0
   )

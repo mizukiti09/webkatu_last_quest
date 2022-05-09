@@ -16,6 +16,6 @@ class TwitterFollowController extends Controller
 
     public function clickFollow(Request $request, TwitterClickFollowUseCaseInterface $interactor)
     {
-        $interactor->followHandle($request->userId);
+        $interactor->followHandle($request->nickname);
     }
 }

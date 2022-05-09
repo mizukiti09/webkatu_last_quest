@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -34,6 +35,18 @@ class Twitter
         return $twitterUser;
     }
 
+    public function currentFollows()
+    {
+        $authUser = Auth::user();
+        $nickname = $authUser->nickname;
+
+        $followAccounts = $this->connection->get('friends/ids', array(
+            'screen_name' => $nickname,
+        ));
+
+        return $followAccounts;
+    }
+
     public function followAccounts()
     {
         $accounts = $this->connection->get('users/search', array(
@@ -44,14 +57,26 @@ class Twitter
             "include_entities" => true,
         ));
 
-        return $accounts;
+        $currentFollows = $this->currentFollows();
+
+        $follows = [];
+        $yetFollows = [];
+        foreach ($accounts as $target) {
+            if (in_array($target->id, $currentFollows->ids)) {
+                array_push($follows, $target);
+            } else {
+                array_push($yetFollows, $target);
+            }
+        }
+
+        return $yetFollows;
     }
 
-    public function clickFollow($userId)
+    public function clickFollow($nickname)
     {
-        Log::info($userId);
+        Log::info($nickname);
         $response = $this->connection->post('friendships/create', array(
-            "user_id" => $userId,
+            "screen_name" => $nickname,
         ));
 
         if (isset($response->error) && $response->error != '') {
