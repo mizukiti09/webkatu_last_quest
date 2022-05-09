@@ -10,8 +10,8 @@ class TwitterClickFollowInteractor implements TwitterClickFollowUseCaseInterface
 {
 
 
-    public function followHandle($userId)
+    public function followHandle($nickname)
     {
-        Twitter::clickFollow($userId);
+        Twitter::clickFollow($nickname);
     }
 }

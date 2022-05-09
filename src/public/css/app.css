@@ -866,6 +866,10 @@ body {
   display: none;
 }
 
+.u-followed {
+  background-color: red;
+}
+
 .u-catch {
   margin: 36px 0 20px;
   color: black;
