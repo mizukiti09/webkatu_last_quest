@@ -4,8 +4,8 @@
             <div class="p-follow__info">
                 <div class="p-follow__avatar">
                     <a :href="'https://twitter.com/' + data.screen_name">
-                                        <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
-                                    </a>
+                                            <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
+                                        </a>
                 </div>
                 <div class="p-follow__name u-border-b">{{ data.name }}</div>
                 <div class="p-follow__nickname u-border-b">@{{ data.screen_name }}</div>
@@ -46,7 +46,7 @@ export default {
     props: ['accounts'],
     data: function() {
         return {
-           
+            clickFollowCount: 0,
         }
     },
     methods: {
@@ -60,6 +60,9 @@ export default {
         follow: function($nickname, $key) {
             const formData = new FormData()
 
+            console.log(this.clickFollowCount + 1)
+
+            this.clickFollowCount = this.clickFollowCount + 1;
 
             formData.append('nickname', $nickname)
             console.log($nickname)
@@ -68,6 +71,11 @@ export default {
                     console.log(res)
                     var ref = this.$refs.account[$key]
                     ref.style.display = 'none'
+
+                    if (this.clickFollowCount === this.accounts.length) {
+                        console.log('リロード')
+                        window.location.reload()
+                    }
                 })
                 .catch((error) => {
                     console.log('followは正常に起動していません。')

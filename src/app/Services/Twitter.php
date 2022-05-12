@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Middleware\CleanArchitectureMiddleware;
 
 class Twitter
 {
@@ -35,7 +36,7 @@ class Twitter
         return $twitterUser;
     }
 
-    public function currentFollows()
+    private function currentFollows()
     {
         $authUser = Auth::user();
         $nickname = $authUser->nickname;
@@ -49,27 +50,50 @@ class Twitter
 
     public function followAccounts()
     {
+        $page = mt_rand(1, 51);
         $accounts = $this->connection->get('users/search', array(
             "q" => "仮想通貨",
-            "page" => 1,
-            "count" => 20,
+            "page" => $page,
+            "count" => 15,
             "tweet_mode" => "extended",
             "include_entities" => true,
         ));
 
-        $currentFollows = $this->currentFollows();
+        return $accounts;
+    }
 
-        $follows = [];
-        $yetFollows = [];
-        foreach ($accounts as $target) {
-            if (in_array($target->id, $currentFollows->ids)) {
-                array_push($follows, $target);
-            } else {
-                array_push($yetFollows, $target);
+
+    public function followCheck($accounts)
+    {
+        if (count($accounts) === 0) {
+            $page = mt_rand(1, 51);
+
+            $accounts = $this->connection->get('users/search', array(
+                "q" => "仮想通貨",
+                "page" => $page,
+                "count" => 15,
+                "tweet_mode" => "extended",
+                "include_entities" => true,
+            ));
+
+            return $accounts;
+        } else {
+            $currentFollows = $this->currentFollows();
+
+            if (isset($currentFollows->errors)) {
+                $warningMessage = '15分お待ち頂いてからご利用ください';
+                CleanArchitectureMiddleware::$view = view('pages.twitter.follow_wait', compact('warningMessage'));
             }
-        }
 
-        return $yetFollows;
+            $yetFollows = [];
+            // // まだフォローしていないアカウントを選別してそれを返す
+            foreach ($accounts as $target) {
+                if (!in_array($target->id, $currentFollows->ids)) {
+                    array_push($yetFollows, $target);
+                }
+            }
+            return $yetFollows;
+        }
     }
 
     public function clickFollow($nickname)
