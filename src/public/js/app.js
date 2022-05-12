@@ -1954,7 +1954,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['accounts'],
   data: function data() {
-    return {};
+    return {
+      clickFollowCount: 0
+    };
   },
   methods: {
     onActive: function onActive(i) {
@@ -1968,12 +1970,19 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var formData = new FormData();
+      console.log(this.clickFollowCount + 1);
+      this.clickFollowCount = this.clickFollowCount + 1;
       formData.append('nickname', $nickname);
       console.log($nickname);
       this.$axios.post('/api/twitter/follow', formData).then(function (res) {
         console.log(res);
         var ref = _this.$refs.account[$key];
         ref.style.display = 'none';
+
+        if (_this.clickFollowCount === _this.accounts.length) {
+          console.log('リロード');
+          window.location.reload();
+        }
       })["catch"](function (error) {
         console.log('followは正常に起動していません。');
         console.log(error);

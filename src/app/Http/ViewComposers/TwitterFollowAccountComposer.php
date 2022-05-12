@@ -16,6 +16,8 @@ class TwitterFollowAccountComposer
 
     public function compose(View $view)
     {
-        $view->with('accounts', $this->twitter::followAccounts());
+        $accounts = Twitter::followAccounts();
+        $accounts = Twitter::followCheck($accounts);
+        $view->with('accounts', $accounts);
     }
 }
