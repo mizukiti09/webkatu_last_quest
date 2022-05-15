@@ -51,7 +51,8 @@
     }
     &-autoFollow {
         border-radius: 50%;
-        padding: 53px 14px;
+        width: 150px;
+        height: 150px;
         font-size: 20px;
         display: block;
         margin: 0 auto;
@@ -76,6 +77,12 @@
         padding: 2px;
         border-radius: 30px;
         width: 150px;
+        transition: .3s;
+    }
+    &-follow:hover {
+        cursor: pointer;
+        background: rgb(125, 200, 250);
+        transition: .3s;
     }
 }
 
@@ -85,4 +92,14 @@
         height: 40px;
         font-size: $font-size_xl;
     }
+}
+
+.autoFollowBtnColor {
+    transition: .3s;
+    background: linear-gradient(45deg, rgb(255, 78, 19), transparent);
+}
+
+.autoFollowBtnColor:hover {
+    transition: .3s;
+    background: linear-gradient(45deg, rgb(255, 78, 19), transparent);
 }
