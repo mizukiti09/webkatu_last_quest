@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Twitter')->group(function () {
     Route::post('twitter/follow', 'TwitterFollowController@clickFollow')->name('twitter.clickFollow');
+    Route::post('twitter/autoFollow', 'TwitterFollowController@autoFollow')->name('twitter.autoFollow');
 });

@@ -4,8 +4,8 @@
             <div class="p-follow__info">
                 <div class="p-follow__avatar">
                     <a :href="'https://twitter.com/' + data.screen_name">
-                                            <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
-                                        </a>
+                                                <img class="u-img" :src="data.profile_image_url.replace( '_normal.', '.')" alt="">
+                                            </a>
                 </div>
                 <div class="p-follow__name u-border-b">{{ data.name }}</div>
                 <div class="p-follow__nickname u-border-b">@{{ data.screen_name }}</div>
@@ -50,13 +50,6 @@ export default {
         }
     },
     methods: {
-        onActive(i) {
-            if (this.followed === i) {
-                this.followed = null;
-            } else {
-                this.followed = i;
-            }
-        },
         follow: function($nickname, $key) {
             const formData = new FormData()
 

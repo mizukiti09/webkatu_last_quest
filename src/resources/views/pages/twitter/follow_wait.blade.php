@@ -1,4 +1,4 @@
-@section('title', 'C Checker / 一括フォロー')@extends('app') @section('content')
+@section('title', 'C Checker / 自動フォロー')@extends('app') @section('content')
 
 <div class="c-contents">
     <section class="p-follow f-section">

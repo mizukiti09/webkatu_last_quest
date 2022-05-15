@@ -25,17 +25,20 @@ class Twitter
         $this->connection = new TwitterOAuth($this->client_id, $this->client_secret, $this->access_token, $this->access_token_secret);
     }
 
+    // twitterAPI接続
     public function getConnection()
     {
         return $this->connection;
     }
 
+    // twitter認証ユーザーの情報を取得
     public function connectUserAuth()
     {
         $twitterUser = Socialite::driver('twitter')->user();
         return $twitterUser;
     }
 
+    // 認証ユーザーのフォローしている他ユーザーの情報を取得
     private function currentFollows()
     {
         $authUser = Auth::user();
@@ -48,6 +51,7 @@ class Twitter
         return $followAccounts;
     }
 
+    // フォローできるアカウント
     public function followAccounts()
     {
         $page = mt_rand(1, 51);
@@ -63,6 +67,7 @@ class Twitter
     }
 
 
+    // フォローページにてまだフォローしていないアカウントを選別
     public function followCheck($accounts)
     {
         if (count($accounts) === 0) {
@@ -93,20 +98,6 @@ class Twitter
                 }
             }
             return $yetFollows;
-        }
-    }
-
-    public function clickFollow($nickname)
-    {
-        Log::info($nickname);
-        $response = $this->connection->post('friendships/create', array(
-            "screen_name" => $nickname,
-        ));
-
-        if (isset($response->error) && $response->error != '') {
-            return $response->error;
-        } else {
-            return $response;
         }
     }
 }

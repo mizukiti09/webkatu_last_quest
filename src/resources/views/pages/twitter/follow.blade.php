@@ -1,4 +1,4 @@
-@section('title', 'C Checker / 一括フォロー')@extends('app') @section('content')
+@section('title', 'C Checker / 自動フォロー')@extends('app') @section('content')
 
 <div class="c-contents">
     <section class="p-follow f-section">
@@ -12,9 +12,7 @@
         </div>
 
 
-        <button class="c-btn-autoFollow" type="submit">
-            Follow Start !!
-        </button>
+        <twitter-auto-follow-btn></twitter-auto-follow-btn>
 
         <div class="p-follow__account__container">
             <twitter-account :accounts="{{ json_encode($accounts) }}"></twitter-account>

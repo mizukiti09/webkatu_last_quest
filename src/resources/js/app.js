@@ -29,6 +29,7 @@ Vue.prototype.$axios = axios;
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
+Vue.component('twitter-auto-follow-btn', require('./components/TwitterAutoFollowBtn.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
