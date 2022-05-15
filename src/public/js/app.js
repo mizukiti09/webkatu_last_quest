@@ -1959,13 +1959,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    onActive: function onActive(i) {
-      if (this.followed === i) {
-        this.followed = null;
-      } else {
-        this.followed = i;
-      }
-    },
     follow: function follow($nickname, $key) {
       var _this = this;
 
@@ -1985,6 +1978,58 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (error) {
         console.log('followは正常に起動していません。');
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      btnState: false,
+      btnText: 'Follow Start !!'
+    };
+  },
+  methods: {
+    // クリックしたら自動フォロー
+    autoFollow: function autoFollow() {
+      this.btnState = !this.btnState;
+
+      if (this.btnText === 'Follow Start !!') {
+        this.btnText = 'Follow Stop';
+      } else {
+        this.btnText = 'Follow Start !!';
+      }
+
+      this.$axios.post('/api/twitter/autoFollow').then(function (res) {
+        console.log(res);
+      })["catch"](function (error) {
+        console.log('autoFollowは正常に起動していません。');
         console.log(error);
       });
     }
@@ -37694,6 +37739,42 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "c-btn-autoFollow",
+        class: { autoFollowBtnColor: _vm.btnState },
+        attrs: { type: "submit" },
+        domProps: { textContent: _vm._s(_vm.btnText) },
+        on: { click: _vm.autoFollow },
+      },
+      [_vm._v("\n        Follow Start !!\n    ")]
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -49944,6 +50025,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$axios = axios__WEBPACK_IMP
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-auto-follow-btn', __webpack_require__(/*! ./components/TwitterAutoFollowBtn.vue */ "./resources/js/components/TwitterAutoFollowBtn.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -50070,6 +50152,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& */ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&");
+/* harmony import */ var _TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterAutoFollowBtn.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TwitterAutoFollowBtn.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAutoFollowBtn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
