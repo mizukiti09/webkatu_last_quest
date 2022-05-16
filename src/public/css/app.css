@@ -341,6 +341,7 @@ body {
   width: 100%;
   height: 40px;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .autoFollowBtnColor {
@@ -353,53 +354,13 @@ body {
   background: linear-gradient(45deg, rgb(255, 78, 19), transparent);
 }
 
-.c-contents {
-  margin-top: 280px !important;
-}
-
-.c-form__container {
-  margin-bottom: 100px;
-}
-.c-form__list {
-  max-width: 300px;
-  margin: 0 auto;
-}
-.c-form__label {
+.c-link {
   display: block;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.c-form__item {
-  margin-bottom: 30px;
-}
-.c-form__input {
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  font-size: 20px;
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-.c-form__input--feedback {
-  color: rgb(151, 31, 31);
-}
-
-.c-page__description {
-  text-align: center;
-  margin-bottom: 80px;
-}
-.c-page__description h2 {
-  font-size: 20px;
-}
-
-.c-link-auth {
-  display: block;
-  margin-top: 20px;
   color: rgb(47, 79, 79) !important;
   transition: 0.3s;
 }
 
-.c-link-auth:hover {
+.c-link:hover {
   transition: 0.3s;
   color: rgb(2, 171, 171) !important;
 }
@@ -496,6 +457,70 @@ body {
   width: 100%;
   transition: 0.1s;
   border-bottom: 2px solid #fff;
+}
+
+.c-section__title {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 32px;
+  margin-bottom: 80px;
+}
+.c-section__title::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 200px;
+  margin: 0 auto 30px;
+  background-color: rgb(47, 79, 79);
+}
+.c-section__description {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.c-section__description h2 {
+  font-size: 20px;
+  line-height: 30px;
+}
+.c-section__container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.c-section__item {
+  background: gainsboro;
+  margin-bottom: 30px;
+  padding: 20px;
+  line-height: 25px;
+}
+
+.c-form__container {
+  margin-bottom: 100px;
+}
+.c-form__list {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.c-form__label {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.c-form__item {
+  margin-bottom: 30px;
+}
+.c-form__input {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.c-form__input--feedback {
+  color: rgb(151, 31, 31);
+}
+
+.c-contents {
+  margin-top: 280px !important;
 }
 
 .p-hero {
@@ -610,15 +635,7 @@ body {
 }
 
 .p-follow__account {
-  background: gainsboro;
-  margin-bottom: 30px;
-  padding: 20px;
   display: flex;
-  line-height: 25px;
-}
-.p-follow__account__container {
-  margin-top: 80px;
-  margin-bottom: 80px;
 }
 .p-follow__info {
   overflow-wrap: anywhere;

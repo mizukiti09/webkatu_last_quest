@@ -54,3 +54,9 @@ Route::namespace('Twitter')->group(function () {
         Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
     });
 });
+
+Route::namespace('Google')->group(function () {
+    Route::prefix('google')->group(function () {
+        Route::get('news', 'GoogleNewsController@index')->name('google.news')->middleware('auth');
+    });
+});

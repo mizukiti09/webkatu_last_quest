@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAuthToUsersTable extends Migration
+class AddUserFollowCountAndFollowCountUpdatedAtToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddAuthToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo_path')->nullable();
-            $table->boolean('twitter')->default(false);
-            $table->string('nickname')->nullable();
+            $table->integer('follow_count')->default(0);
+            $table->integer('follow_count_first_unix_time')->nullable();
         });
     }
 
@@ -28,9 +27,8 @@ class AddAuthToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('profile_photo_path');
-            $table->dropColumn('twitter');
-            $table->dropColumn('nickname');
+            $table->dropColumn('follow_count');
+            $table->dropColumn('follow_count_first_unix_time');
         });
     }
 }

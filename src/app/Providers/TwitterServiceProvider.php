@@ -9,11 +9,14 @@ use App\Http\Presenters\Twitter\TwitterFollowPresenter;
 use App\Http\ViewComposers\TwitterFollowAccountComposer;
 use packages\Domain\Application\Twitter\TwitterAuthInteractor;
 use packages\UseCase\Twitter\Auth\TwitterAuthUseCaseInterface;
+use packages\Domain\Application\Twitter\TwitterFollowInteractor;
 use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
-use packages\Domain\Application\Twitter\TwitterClickFollowInteractor;
+use packages\UseCase\Twitter\Follow\TwitterAutoFollowUseCaseInterface;
 use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
 use packages\UseCase\Twitter\Follow\TwitterClickFollowUseCaseInterface;
+use packages\Infrastructure\User\TwitterAuth\UserTwitterFollowRepository;
 use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
+use packages\Domain\Domain\User\TwitterAuth\UserTwitterFollowRepositoryInterface;
 
 class TwitterServiceProvider extends ServiceProvider
 {
@@ -51,8 +54,10 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public $bindings = [
         UserTwitterAuthRepositoryInterface::class => UserTwitterAuthRepository::class,
+        UserTwitterFollowRepositoryInterface::class => UserTwitterFollowRepository::class,
         TwitterFollowPresenterInterface::class => TwitterFollowPresenter::class,
         TwitterAuthUseCaseInterface::class => TwitterAuthInteractor::class,
-        TwitterClickFollowUseCaseInterface::class => TwitterClickFollowInteractor::class,
+        TwitterClickFollowUseCaseInterface::class => TwitterFollowInteractor::class,
+        TwitterAutoFollowUseCaseInterface::class => TwitterFollowInteractor::class,
     ];
 }
