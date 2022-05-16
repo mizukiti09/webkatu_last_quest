@@ -118,15 +118,7 @@
 
 .p-follow {
     &__account {
-        background: gainsboro;
-        margin-bottom: 30px;
-        padding: 20px;
         display: flex;
-        line-height: 25px;
-        &__container {
-            margin-top: 80px;
-            margin-bottom: 80px;
-        }
     }
     &__info {
         overflow-wrap: anywhere;

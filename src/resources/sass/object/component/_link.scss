@@ -1,11 +1,10 @@
-.c-link-auth {
+.c-link {
     display: block;
-    margin-top: 20px;
     color: $baseColor !important;
     transition: .3s;
 }
 
-.c-link-auth:hover {
+.c-link:hover {
     transition: .3s;
     color: $baseColorHover !important;
 }

@@ -35,7 +35,7 @@
                     <button type="submit" class="c-form__button">
                             {{ __('Login') }}
                         </button>@if (Route::has('password.request'))
-                        <a class="c-link-auth" href="{{ route('password.request') }}">
+                        <a class="c-link" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a> @endif
                 </div>

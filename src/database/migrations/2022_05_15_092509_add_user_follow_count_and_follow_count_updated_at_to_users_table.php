@@ -15,7 +15,7 @@ class AddUserFollowCountAndFollowCountUpdatedAtToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('follow_count')->default(0);
-            $table->timestamp('follow_count_updated_at')->nullable();
+            $table->integer('follow_count_first_unix_time')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ class AddUserFollowCountAndFollowCountUpdatedAtToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('follow_count');
-            $table->dropColumn('follow_count_updated_at');
+            $table->dropColumn('follow_count_first_unix_time');
         });
     }
 }

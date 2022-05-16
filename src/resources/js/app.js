@@ -28,9 +28,11 @@ Vue.prototype.$axios = axios;
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+
 Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
 Vue.component('twitter-auto-follow-btn', require('./components/TwitterAutoFollowBtn.vue').default);
 
+Vue.component('google-news', require('./components/GoogleNews.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
