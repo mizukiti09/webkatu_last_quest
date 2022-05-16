@@ -8,7 +8,12 @@ require('./bootstrap');
 require('./device_sp');
 require('./fade');
 
-window.Vue = require('vue');
+import Vue from 'vue';
+import axios from 'axios';
+
+
+
+Vue.prototype.$axios = axios;
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,7 +28,11 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+
 Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
+Vue.component('twitter-auto-follow-btn', require('./components/TwitterAutoFollowBtn.vue').default);
+
+Vue.component('google-news', require('./components/GoogleNews.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -32,4 +41,11 @@ Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue'
 
 const app = new Vue({
     el: '#app',
+});
+
+
+// ハンバーガーメニュ 
+$(".c-btn-open").on('click', function() {
+    $(this).toggleClass('active');
+    $(".c-nav").toggleClass('panelactive');
 });

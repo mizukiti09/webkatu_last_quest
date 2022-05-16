@@ -118,14 +118,7 @@
 
 .p-follow {
     &__account {
-        background: gainsboro;
-        margin-bottom: 30px;
-        padding: 20px;
         display: flex;
-        &__container {
-            margin-top: 80px;
-            margin-bottom: 80px;
-        }
     }
     &__info {
         overflow-wrap: anywhere;
@@ -140,16 +133,25 @@
     &__avatar {
         width: 100px;
         height: 100px;
-        border-radius: 50%;
-        background: gray;
+        & .u-img {
+            border-radius: 50%;
+        }
     }
     &__prof {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
     &__status {}
     &__title {
         font-weight: bold;
         margin-bottom: 5px;
+    }
+    &__tweet {
+        &__img {
+            display: table;
+            max-width: 450px;
+            max-height: 300px;
+            margin-top: 20px;
+        }
     }
 }
 

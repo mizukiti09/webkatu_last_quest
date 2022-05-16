@@ -1,5 +1,4 @@
 @extends('app') @section('content')
-
 <div class="c-contents">
     <section class="c-form__container">
         <div class="c-section__title">
@@ -35,7 +34,10 @@
                 <div class="c-form__item">
                     <button type="submit" class="c-form__button">
                             {{ __('Login') }}
-                        </button>
+                        </button>@if (Route::has('password.request'))
+                        <a class="c-link" href="{{ route('password.request') }}">
+                                {{ __('Forgot Your Password?') }}
+                            </a> @endif
                 </div>
             </form>
         </div>

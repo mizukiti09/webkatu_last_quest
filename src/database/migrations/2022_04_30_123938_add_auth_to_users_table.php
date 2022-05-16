@@ -14,11 +14,9 @@ class AddAuthToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            Schema::table('users', function (Blueprint $table) {
-                $table->string('profile_photo_path')->nullable();
-                $table->boolean('twitter')->default(false);
-                $table->string('nickname')->nullable();
-            });
+            $table->string('profile_photo_path')->nullable();
+            $table->boolean('twitter')->default(false);
+            $table->string('nickname')->nullable();
         });
     }
 

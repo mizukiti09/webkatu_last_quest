@@ -2,6 +2,10 @@
     display: none;
 }
 
+.u-followed {
+    background-color: red;
+}
+
 .u-catch {
     margin: 36px 0 20px;
     color: black;
@@ -15,6 +19,10 @@
         margin-bottom: 30px;
         line-height: 2.5rem;
     }
+}
+
+.u-border-b {
+    border-bottom: 1px solid gray;
 }
 
 @media screen and (max-width: 481px) {

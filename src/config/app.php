@@ -174,8 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // TwitterAuth
         App\Providers\TwitterServiceProvider::class,
+        App\Providers\GoogleServiceProvider::class,
 
     ],
 

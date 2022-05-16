@@ -1899,6 +1899,32 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleNews.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GoogleNews.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['list_gn'],
+  data: function data() {},
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAccountFollow.vue?vue&type=script&lang=js& ***!
@@ -1940,9 +1966,99 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  props: ['accounts'],
+  data: function data() {
+    return {
+      clickFollowCount: 0
+    };
+  },
+  methods: {
+    follow: function follow($nickname, $key) {
+      var _this = this;
+
+      var formData = new FormData();
+      console.log(this.clickFollowCount + 1);
+      this.clickFollowCount = this.clickFollowCount + 1;
+      formData.append('nickname', $nickname);
+      console.log($nickname);
+      this.$axios.post('/api/twitter/follow', formData).then(function (res) {
+        console.log(res);
+        var ref = _this.$refs.account[$key];
+        ref.style.display = 'none';
+
+        if (_this.clickFollowCount === _this.accounts.length) {
+          console.log('リロード');
+          window.location.reload();
+        }
+      })["catch"](function (error) {
+        console.log('followは正常に起動していません。');
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      btnState: false,
+      btnText: 'Follow Start !!'
+    };
+  },
+  methods: {
+    // クリックしたら自動フォロー
+    autoFollow: function autoFollow() {
+      this.btnState = !this.btnState;
+
+      if (this.btnText === 'Follow Start !!') {
+        this.btnText = 'Follow Stop';
+      } else {
+        this.btnText = 'Follow Start !!';
+      }
+
+      this.$axios.post('/api/twitter/autoFollow').then(function (res) {
+        console.log(res);
+      })["catch"](function (error) {
+        console.log('autoFollowは正常に起動していません。');
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -37519,6 +37635,53 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.list_gn, function (data, i) {
+      return _c(
+        "div",
+        { key: i, staticClass: "p-news__article c-section__item" },
+        [
+          _c("div", { staticClass: "p-news__headLine" }, [
+            _c(
+              "a",
+              {
+                staticClass: "c-link",
+                attrs: { href: data.url, target: "_blank" },
+              },
+              [_vm._v(_vm._s(data.title))]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", [_vm._v(_vm._s(data.pubDate))]),
+        ]
+      )
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAccountFollow.vue?vue&type=template&id=52fdb014& ***!
@@ -37534,64 +37697,151 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    _vm._l(_vm.accounts, function (data, i) {
+      return _c(
+        "div",
+        {
+          key: i,
+          ref: "account",
+          refInFor: true,
+          staticClass: "p-follow__account c-section__item",
+        },
+        [
+          _c("div", { staticClass: "p-follow__info" }, [
+            _c("div", { staticClass: "p-follow__avatar" }, [
+              _c(
+                "a",
+                { attrs: { href: "https://twitter.com/" + data.screen_name } },
+                [
+                  _c("img", {
+                    staticClass: "u-img",
+                    attrs: {
+                      src: data.profile_image_url.replace("_normal.", "."),
+                      alt: "",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__name u-border-b" }, [
+              _vm._v(_vm._s(data.name)),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__nickname u-border-b" }, [
+              _vm._v("@" + _vm._s(data.screen_name)),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__status" }, [
+              _c("div", { staticClass: "p-follow__followCount" }, [
+                _vm._v(_vm._s(data.friends_count) + " フォロー中"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-follow__followerCount" }, [
+                _vm._v(_vm._s(data.followers_count) + " フォロワー数"),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "c-btn-follow",
+                on: {
+                  click: function ($event) {
+                    return _vm.follow(data.screen_name, i)
+                  },
+                },
+              },
+              [_vm._v("フォロー")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-follow__info" }, [
+            _c("div", { staticClass: "p-follow__prof" }, [
+              _c("div", { staticClass: "p-follow__title u-border-b" }, [
+                _vm._v("\n                    プロフィール\n                "),
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(data.description))]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-follow__tweet" }, [
+              _c("div", { staticClass: "p-follow__title u-border-b" }, [
+                _vm._v(
+                  "\n                    最新のツイート\n                "
+                ),
+              ]),
+              _vm._v(" "),
+              data.status.retweeted_status
+                ? _c("div", [
+                    _vm._v(_vm._s(data.status.retweeted_status.full_text)),
+                  ])
+                : _c("div", [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.status.full_text) +
+                        "\n\n                    "
+                    ),
+                    data.status.entities.media
+                      ? _c("div", { staticClass: "p-follow__tweet__img" }, [
+                          _c("img", {
+                            staticClass: "u-img",
+                            attrs: {
+                              src: data.status.entities.media[0]
+                                .media_url_https,
+                              alt: "",
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                  ]),
+            ]),
+          ]),
+        ]
+      )
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-follow__account" }, [
-      _c("div", { staticClass: "p-follow__info" }, [
-        _c("div", { staticClass: "p-follow__avatar" }, [
-          _c("img", { attrs: { src: "", alt: "" } }),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__name" }, [_vm._v("銀二")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__nickname" }, [
-          _vm._v("@mizukiti_mind"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__status" }, [
-          _c("div", { staticClass: "p-follow__followCount" }, [
-            _vm._v("100 フォロー中"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "p-follow__followerCount" }, [
-            _vm._v("200 フォロワー数"),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "p-follow__info" }, [
-        _c("div", { staticClass: "p-follow__prof" }, [
-          _c("div", { staticClass: "p-follow__title" }, [
-            _vm._v("\n                プロフィール\n            "),
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "リードに繋がれたペット(お金を貰ってる人間) ではなく ▶️ 飼い主 (お金を稼いでいる人間) になる努力を、 経歴《ベーシスト、ホームレス、スカウト業 、 webエンジニア》 25age"
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-follow__tweet" }, [
-          _c("div", { staticClass: "p-follow__title" }, [
-            _vm._v("\n                最新のツイート\n            "),
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.\n                tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet.tweet. tweet.tweet.tweet.tweet.tweet.\n            "
-            ),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "c-btn-autoFollow",
+        class: { autoFollowBtnColor: _vm.btnState },
+        attrs: { type: "submit" },
+        domProps: { textContent: _vm._s(_vm.btnText) },
+        on: { click: _vm.autoFollow },
+      },
+      [_vm._v("\n        Follow Start !!\n    ")]
+    ),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49813,9 +50063,15 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49827,7 +50083,9 @@ __webpack_require__(/*! ./device_sp */ "./resources/js/device_sp.js");
 
 __webpack_require__(/*! ./fade */ "./resources/js/fade.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$axios = axios__WEBPACK_IMPORTED_MODULE_1___default.a;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -49839,15 +50097,22 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-auto-follow-btn', __webpack_require__(/*! ./components/TwitterAutoFollowBtn.vue */ "./resources/js/components/TwitterAutoFollowBtn.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('google-news', __webpack_require__(/*! ./components/GoogleNews.vue */ "./resources/js/components/GoogleNews.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app'
+}); // ハンバーガーメニュ 
+
+$(".c-btn-open").on('click', function () {
+  $(this).toggleClass('active');
+  $(".c-nav").toggleClass('panelactive');
 });
 
 /***/ }),
@@ -49894,6 +50159,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/GoogleNews.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/GoogleNews.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GoogleNews.vue?vue&type=template&id=0c9be152& */ "./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152&");
+/* harmony import */ var _GoogleNews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GoogleNews.vue?vue&type=script&lang=js& */ "./resources/js/components/GoogleNews.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GoogleNews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/GoogleNews.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/GoogleNews.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/GoogleNews.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleNews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./GoogleNews.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleNews.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleNews_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./GoogleNews.vue?vue&type=template&id=0c9be152& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleNews.vue?vue&type=template&id=0c9be152&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GoogleNews_vue_vue_type_template_id_0c9be152___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -49961,6 +50295,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAccountFollow_vue_vue_type_template_id_52fdb014___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& */ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&");
+/* harmony import */ var _TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterAutoFollowBtn.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TwitterAutoFollowBtn.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAutoFollowBtn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterAutoFollowBtn.vue?vue&type=template&id=54aa14b4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

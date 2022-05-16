@@ -44,9 +44,9 @@
                 </div>
 
                 <div class="c-form__item">
-                    <label for="password-confirm" class="c-form__label">{{ __('Confirm Password') }}</label>
+                    <label for="password_confirmation" class="c-form__label">{{ __('Confirm Password') }}</label>
                     <div class="c-form__body">
-                        <input id="password-confirm" type="password" class="c-form__input" name="password_confirmation" value="{{ old('password_confirmation') }}" required autocomplete="new-password" autofocus>
+                        <input id="password_confirmation" type="password" class="c-form__input" name="password_confirmation" value="{{ old('password_confirmation') }}" required autocomplete="new-password" autofocus>
                     </div>
                 </div>
 

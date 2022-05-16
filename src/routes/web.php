@@ -20,9 +20,43 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('login/twitter', 'TwitterLoginController@redirectToProvider')->name('login.twitter');
-Route::get('login/twitter/callback', 'TwitterLoginController@handleProviderCallback')->name('login.twitter.callback');
+Route::namespace('Auth')->group(function () {
+    //パスワードリセット
+    Route::get(
+        'password/reset',
+        'ForgotPasswordController@showLinkRequestForm'
+    )->name('password.request');
+    Route::post(
+        'password/email',
+        'ForgotPasswordController@sendResetLinkEmail'
+    )->name('password.email');
+    Route::get(
+        'password/reset/{token}',
+        'ResetPasswordController@showResetForm'
+    )->name('password.reset');
+    Route::post(
+        'password/reset',
+        'ResetPasswordController@reset'
+    )->name('password.resetPost');
+});
 
-Route::prefix('twitter')->group(function () {
-    Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
+Route::namespace('Twitter')->group(function () {
+    // Twitter認証====================
+    // ログイン
+    Route::get('login/twitter', 'TwitterLoginController@twitterLogin')->name('login.twitter');
+    Route::get('login/twitter/callback', 'TwitterLoginController@twitterCallback')->name('login.twitter.callback');
+
+    // ログアウト
+    Route::get('logout/twitter', 'TwitterLogoutController@handle')->name('logout.twitter');
+    // ================================
+
+    Route::prefix('twitter')->group(function () {
+        Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
+    });
+});
+
+Route::namespace('Google')->group(function () {
+    Route::prefix('google')->group(function () {
+        Route::get('news', 'GoogleNewsController@index')->name('google.news')->middleware('auth');
+    });
 });

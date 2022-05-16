@@ -2,11 +2,21 @@
 
 namespace App\Providers;
 
-use App\Http\Presenters\Twitter\TwitterFollowPresenter;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
-use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
+use App\Http\ViewComposers\UserComposer;
+use App\Http\Presenters\Twitter\TwitterFollowPresenter;
+use App\Http\ViewComposers\TwitterFollowAccountComposer;
+use packages\Domain\Application\Twitter\TwitterAuthInteractor;
+use packages\UseCase\Twitter\Auth\TwitterAuthUseCaseInterface;
+use packages\Domain\Application\Twitter\TwitterFollowInteractor;
 use packages\UseCase\Twitter\Follow\TwitterFollowPresenterInterface;
+use packages\UseCase\Twitter\Follow\TwitterAutoFollowUseCaseInterface;
+use packages\Infrastructure\User\TwitterAuth\UserTwitterAuthRepository;
+use packages\UseCase\Twitter\Follow\TwitterClickFollowUseCaseInterface;
+use packages\Infrastructure\User\TwitterAuth\UserTwitterFollowRepository;
+use packages\Domain\Domain\User\TwitterAuth\UserTwitterAuthRepositoryInterface;
+use packages\Domain\Domain\User\TwitterAuth\UserTwitterFollowRepositoryInterface;
 
 class TwitterServiceProvider extends ServiceProvider
 {
@@ -27,7 +37,10 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composers([
+            TwitterFollowAccountComposer::class => 'pages.twitter.*',
+            UserComposer::class => 'app',
+        ]);
     }
 
     private function registerForFacade()
@@ -41,6 +54,10 @@ class TwitterServiceProvider extends ServiceProvider
      */
     public $bindings = [
         UserTwitterAuthRepositoryInterface::class => UserTwitterAuthRepository::class,
+        UserTwitterFollowRepositoryInterface::class => UserTwitterFollowRepository::class,
         TwitterFollowPresenterInterface::class => TwitterFollowPresenter::class,
+        TwitterAuthUseCaseInterface::class => TwitterAuthInteractor::class,
+        TwitterClickFollowUseCaseInterface::class => TwitterFollowInteractor::class,
+        TwitterAutoFollowUseCaseInterface::class => TwitterFollowInteractor::class,
     ];
 }
