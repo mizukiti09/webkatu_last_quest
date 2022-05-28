@@ -61,12 +61,12 @@
                 display: block;
                 width: 0;
                 transition: .1s;
-                border-bottom: 2px solid #fff;
+                border-bottom: 2px solid $baseColor;
             }
             &:hover:after {
                 width: 100%;
                 transition: .1s;
-                border-bottom: 2px solid #fff;
+                border-bottom: 2px solid $baseColor;
             }
         }
     }

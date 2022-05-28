@@ -56,7 +56,7 @@ class TwitterFollowInteractor implements TwitterClickFollowUseCaseInterface, Twi
                     return $response;
                 }
 
-                sleep(10);
+                sleep(60);
             }
         } else {
             return;

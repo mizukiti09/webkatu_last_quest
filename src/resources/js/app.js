@@ -31,6 +31,9 @@ Vue.prototype.$axios = axios;
 
 Vue.component('twitter-account', require('./components/TwitterAccountFollow.vue').default);
 Vue.component('twitter-auto-follow-btn', require('./components/TwitterAutoFollowBtn.vue').default);
+Vue.component('twitter-coin-trend', require('./components/TwitterCoinTrend.vue').default);
+Vue.component('twitter-coin-trend-ranking', require('./components/TwitterCoinTrendRanking.vue').default);
+Vue.component('twitter-coin-trend-each', require('./components/TwitterCoinTrendEach.vue').default);
 
 Vue.component('google-news', require('./components/GoogleNews.vue').default);
 /**

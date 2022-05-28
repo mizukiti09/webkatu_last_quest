@@ -370,21 +370,6 @@ body {
   font-size: 24px;
 }
 
-.c-section__title {
-  text-align: center;
-  font-weight: bolder;
-  font-size: 32px;
-  margin-bottom: 80px;
-}
-.c-section__title::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 200px;
-  margin: 0 auto 30px;
-  background-color: rgb(47, 79, 79);
-}
-
 .c-navbar {
   display: flex;
   justify-content: space-evenly;
@@ -451,12 +436,12 @@ body {
   display: block;
   width: 0;
   transition: 0.1s;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid rgb(47, 79, 79);
 }
 .c-nav li a:hover:after {
   width: 100%;
   transition: 0.1s;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid rgb(47, 79, 79);
 }
 
 .c-section__title {
@@ -492,6 +477,11 @@ body {
   line-height: 25px;
 }
 
+@media screen and (max-width: 768px) {
+  .c-section__description h2 {
+    font-size: 18px;
+  }
+}
 .c-form__container {
   margin-bottom: 100px;
 }
@@ -521,6 +511,7 @@ body {
 
 .c-contents {
   margin-top: 280px !important;
+  margin-bottom: 60px !important;
 }
 
 .p-hero {
@@ -668,6 +659,168 @@ body {
   margin-top: 20px;
 }
 
+.p-trend__container {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.p-trend__side {
+  margin-bottom: 20px;
+  margin-top: 50px;
+  font-size: 20px;
+}
+.p-trend__side__head {
+  height: 40px;
+  border: 1px solid;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(47, 79, 79, 0.85);
+}
+.p-trend__side__coin__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.p-trend__side__coin__btn {
+  width: 120px;
+  height: 30px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  background: darkgray;
+  text-align: center;
+}
+.p-trend__side__btn {
+  display: block;
+  width: 33.3333333333%;
+  height: 40px;
+  border: 1px solid;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  background: lightgray;
+  color: black;
+  border: 1px solid #fff;
+}
+.p-trend__side__btn__container {
+  display: flex;
+}
+.p-trend__ranking {
+  color: rgb(47, 79, 79);
+}
+.p-trend__ranking__container {
+  height: 225px;
+}
+.p-trend__ranking__item {
+  color: rgb(47, 79, 79);
+  display: flex;
+  line-height: 40px;
+  border: 5px solid rgb(47, 79, 79);
+  text-align: center;
+  font-weight: bold;
+}
+.p-trend__ranking__title {
+  height: 40px;
+  border: 5px solid rgb(47, 79, 79);
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+  color: #fff;
+}
+.p-trend__ranking__right {
+  width: 90%;
+}
+.p-trend__ranking__number {
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  width: 10%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__ranking__name {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  overflow-x: scroll;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__ranking__tweets {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__ranking__price {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__each__item {
+  color: rgb(47, 79, 79);
+  display: flex;
+  line-height: 40px;
+  border: 5px solid rgb(47, 79, 79);
+  text-align: center;
+  font-weight: bold;
+}
+.p-trend__each__item__name {
+  font-weight: bold;
+}
+.p-trend__each__item__head {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  border: 1px solid #fff;
+  text-align: center;
+  background: rgb(161, 195, 224);
+  font-weight: bold;
+}
+.p-trend__each__item__body {
+  display: flex;
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  border: 1px solid #fff;
+  text-align: center;
+  font-weight: bold;
+  background: lightgray;
+}
+.p-trend__each__right {
+  width: 90%;
+}
+.p-trend__each__title {
+  height: 40px;
+  border: 5px solid rgb(47, 79, 79);
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: bold;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+  color: #fff;
+}
+.p-trend__each__number {
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  width: 10%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__each__name {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  overflow-x: scroll;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__each__tweets {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+.p-trend__each__price {
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  background: linear-gradient(-45deg, rgba(246, 255, 0, 0.8), rgb(15, 149, 149)), url();
+}
+
 @media screen and (max-width: 481px) {
   .p-hero__logo {
     width: 250px;
@@ -744,6 +897,37 @@ body {
   }
   .p-start__item > .u-catch {
     margin: 36px 0 7px;
+  }
+
+  .p-trend__container {
+    display: initial;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .p-trend__main {
+    width: 100%;
+  }
+  .p-trend__side {
+    width: 100%;
+    font-size: 18px;
+  }
+  .p-trend__side__btn {
+    width: 100%;
+  }
+  .p-trend__side__btn__container {
+    display: block;
+  }
+  .p-trend__side__coin__container {
+    justify-content: space-around;
+  }
+  .p-trend__ranking__title {
+    font-size: 18px;
+  }
+  .p-trend__ranking__item {
+    font-size: 14px;
+  }
+  .p-trend__ranking__item__head {
+    font-size: 14px;
   }
 }
 .u-fade-up, .u-fade-down, .u-fade-right {
@@ -908,12 +1092,20 @@ body {
      object-fit: contain;
 }
 
+.activeCoinTweetsInfo {
+  background: rgba(63, 111, 84, 0.4);
+}
+
 .u-br {
   display: none;
 }
 
 .u-followed {
   background-color: red;
+}
+
+.u-twitter-link {
+  color: rgb(29, 155, 240);
 }
 
 .u-catch {

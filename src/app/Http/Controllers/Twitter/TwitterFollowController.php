@@ -13,7 +13,7 @@ class TwitterFollowController extends Controller
     // フォローページ表示
     public function index()
     {
-        CleanArchitectureMiddleware::$view = view('pages.twitter.follow');
+        CleanArchitectureMiddleware::$view = view('pages.twitter.follow.follow');
     }
 
     // ユーザーが一つずつフォロー

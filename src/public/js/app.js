@@ -2064,6 +2064,222 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['hour_ago', 'day_ago', 'week_ago', 'each_coins'],
+  data: function data() {
+    return {
+      coin_info: null,
+      activeHourInfo: false,
+      activeDayInfo: false,
+      activeWeekInfo: false,
+      select_coins: [],
+      showRanking: false,
+      showEach: false
+    };
+  },
+  methods: {
+    whichTweets: function whichTweets(event) {
+      this.showEach = false;
+      this.showRanking = true;
+
+      if (event.target.dataset.coin === 'hour') {
+        this.coin_info = this.hour_ago;
+        this.activeHourInfo = true;
+        this.activeDayInfo = false;
+        this.activeWeekInfo = false;
+      } else if (event.target.dataset.coin === 'day') {
+        this.coin_info = this.day_ago;
+        this.activeHourInfo = false;
+        this.activeDayInfo = true;
+        this.activeWeekInfo = false;
+      } else if (event.target.dataset.coin === 'week') {
+        this.coin_info = this.week_ago;
+        this.activeHourInfo = false;
+        this.activeDayInfo = false;
+        this.activeWeekInfo = true;
+      }
+    },
+    whichEachCoin: function whichEachCoin($key) {
+      this.showRanking = false;
+      this.showEach = true;
+      this.activeHourInfo = false;
+      this.activeDayInfo = false;
+      this.activeWeekInfo = false; // クリックされたらコインbuttonを消す
+
+      var ref = this.$refs.btn[$key];
+      ref.style.visibility = 'hidden'; // 子コンポーネントに送る配列にデータを入れる
+
+      this.select_coins.push(this.each_coins[$key]);
+    },
+    reset: function reset() {
+      this.showRanking = false;
+      this.showEach = false;
+      this.activeHourInfo = false;
+      this.activeDayInfo = false;
+      this.activeWeekInfo = false;
+      this.select_coins = [];
+      this.$refs.btn.forEach(function (ref) {
+        ref.style.visibility = 'initial';
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['select_coins'],
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['coin_info'],
+  data: function data() {
+    return {};
+  },
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37848,6 +38064,392 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "c-section__container p-trend__container" }, [
+    _c("div", { staticClass: "p-trend__side" }, [
+      _c("div", { staticClass: "p-trend__side__head" }, [
+        _vm._v("過去ツイート集計"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-trend__side__btn__container" }, [
+        _c(
+          "button",
+          {
+            staticClass: "p-trend__side__btn",
+            class: { activeCoinTweetsInfo: _vm.activeHourInfo },
+            attrs: { "data-coin": "hour" },
+            on: {
+              click: function ($event) {
+                return _vm.whichTweets($event)
+              },
+            },
+          },
+          [_vm._v("\n                過去1時間\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "p-trend__side__btn",
+            class: { activeCoinTweetsInfo: _vm.activeDayInfo },
+            attrs: { "data-coin": "day" },
+            on: {
+              click: function ($event) {
+                return _vm.whichTweets($event)
+              },
+            },
+          },
+          [_vm._v("\n                過去1日\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "p-trend__side__btn",
+            class: { activeCoinTweetsInfo: _vm.activeWeekInfo },
+            attrs: { "data-coin": "week" },
+            on: {
+              click: function ($event) {
+                return _vm.whichTweets($event)
+              },
+            },
+          },
+          [_vm._v("\n                過去1週間\n            ")]
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-trend__side__head" }, [_vm._v("各銘柄情報")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "p-trend__side__coin__container" },
+        [
+          _vm._l(_vm.each_coins, function (data, i) {
+            return _c(
+              "button",
+              {
+                key: i,
+                ref: "btn",
+                refInFor: true,
+                staticClass: "p-trend__side__coin__btn",
+                on: {
+                  click: function ($event) {
+                    return _vm.whichEachCoin(i)
+                  },
+                },
+              },
+              [
+                _vm._v(
+                  "\n                " + _vm._s(data.name) + "\n            "
+                ),
+              ]
+            )
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function ($event) {
+                  return _vm.reset()
+                },
+              },
+            },
+            [_vm._v("リセット")]
+          ),
+        ],
+        2
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "p-trend__main" }, [
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showRanking,
+              expression: "showRanking",
+            },
+          ],
+          staticClass: "p-trend__ranking",
+        },
+        [
+          _c("twitter-coin-trend-ranking", {
+            attrs: { coin_info: _vm.coin_info },
+          }),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showEach,
+              expression: "showEach",
+            },
+          ],
+          staticClass: "p-trend__coinInfo",
+        },
+        [
+          _c("twitter-coin-trend-each", {
+            attrs: { select_coins: _vm.select_coins },
+          }),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "p-trend__each__title" }, [
+        _vm._v("各銘柄情報"),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.select_coins, function (data, i) {
+        return _c(
+          "div",
+          { key: i, staticClass: "p-trend__each__item u-fade-right" },
+          [
+            _c("div", { staticClass: "p-trend__each__number" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-trend__each__right" }, [
+              _c("div", { staticClass: "p-trend__each__name" }, [
+                _vm._v("コイン名"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "u-fade-up" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "u-twitter-link",
+                    attrs: {
+                      href:
+                        "https://twitter.com/search?q=" +
+                        data.name +
+                        "&src=typed_query&f=top",
+                    },
+                  },
+                  [_vm._v(_vm._s(data.name))]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__each__tweets" }, [
+                _vm._v("ツイート件数"),
+              ]),
+              _vm._v(" "),
+              data.hour_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v("過去1時間：" + _vm._s(data.hour_ago) + "件"),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              data.day_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v("過去1日：" + _vm._s(data.day_ago) + "件"),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              data.week_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v("過去1週間：" + _vm._s(data.week_ago) + "件"),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__each__price" }, [
+                _vm._v("24時間最高取引価格"),
+              ]),
+              _vm._v(" "),
+              data.high
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.high)),
+                  ])
+                : _c("div", { staticClass: "u-fade-up" }, [_vm._v("不明")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__each__price" }, [
+                _vm._v("24時間最安取引価格"),
+              ]),
+              _vm._v(" "),
+              data.low
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.low)),
+                  ])
+                : _c("div", { staticClass: "u-fade-up" }, [_vm._v("不明")]),
+            ]),
+          ]
+        )
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm.coin_info
+        ? _c("span", [
+            _vm._v("更新日時：" + _vm._s(_vm.coin_info[0]["updated_at"])),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-trend__ranking__title" }, [
+        _vm._v("ツイート件数ランキング"),
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.coin_info, function (data, i) {
+        return _c(
+          "div",
+          { key: i, staticClass: "p-trend__ranking__item u-fade-right" },
+          [
+            _c("div", { staticClass: "p-trend__ranking__number" }, [
+              _vm._v("順位"),
+              _c("br"),
+              _vm._v(_vm._s(i + 1)),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-trend__ranking__right" }, [
+              _c("div", { staticClass: "p-trend__ranking__name" }, [
+                _vm._v("コイン名"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "u-fade-up" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "u-twitter-link",
+                    attrs: {
+                      href:
+                        "https://twitter.com/search?q=" +
+                        data.name +
+                        "&src=typed_query&f=top",
+                    },
+                  },
+                  [_vm._v(_vm._s(data.name))]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__ranking__tweets" }, [
+                _vm._v("件数"),
+              ]),
+              _vm._v(" "),
+              data.hour_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.hour_ago)),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              data.day_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.day_ago)),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              data.week_ago
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.week_ago)),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__ranking__price" }, [
+                _vm._v("24時間最高取引価格"),
+              ]),
+              _vm._v(" "),
+              data.high
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.high)),
+                  ])
+                : _c("div", { staticClass: "u-fade-up" }, [_vm._v("不明")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-trend__ranking__price" }, [
+                _vm._v("24時間最安取引価格"),
+              ]),
+              _vm._v(" "),
+              data.low
+                ? _c("div", { staticClass: "u-fade-up" }, [
+                    _vm._v(_vm._s(data.low)),
+                  ])
+                : _c("div", { staticClass: "u-fade-up" }, [_vm._v("不明")]),
+            ]),
+          ]
+        )
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -50099,6 +50701,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$axios = axios__WEBPACK_IMP
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-account', __webpack_require__(/*! ./components/TwitterAccountFollow.vue */ "./resources/js/components/TwitterAccountFollow.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-auto-follow-btn', __webpack_require__(/*! ./components/TwitterAutoFollowBtn.vue */ "./resources/js/components/TwitterAutoFollowBtn.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-coin-trend', __webpack_require__(/*! ./components/TwitterCoinTrend.vue */ "./resources/js/components/TwitterCoinTrend.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-coin-trend-ranking', __webpack_require__(/*! ./components/TwitterCoinTrendRanking.vue */ "./resources/js/components/TwitterCoinTrendRanking.vue")["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('twitter-coin-trend-each', __webpack_require__(/*! ./components/TwitterCoinTrendEach.vue */ "./resources/js/components/TwitterCoinTrendEach.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('google-news', __webpack_require__(/*! ./components/GoogleNews.vue */ "./resources/js/components/GoogleNews.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50364,6 +50969,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterAutoFollowBtn_vue_vue_type_template_id_54aa14b4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrend.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrend.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterCoinTrend.vue?vue&type=template&id=df17cb78& */ "./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78&");
+/* harmony import */ var _TwitterCoinTrend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterCoinTrend.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TwitterCoinTrend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TwitterCoinTrend.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrend.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrend.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrend_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrend.vue?vue&type=template&id=df17cb78& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrend.vue?vue&type=template&id=df17cb78&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrend_vue_vue_type_template_id_df17cb78___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendEach.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendEach.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36& */ "./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36&");
+/* harmony import */ var _TwitterCoinTrendEach_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterCoinTrendEach.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TwitterCoinTrendEach_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TwitterCoinTrendEach.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendEach_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrendEach.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendEach_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendEach.vue?vue&type=template&id=ef117c36&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendEach_vue_vue_type_template_id_ef117c36___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendRanking.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendRanking.vue ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc& */ "./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc&");
+/* harmony import */ var _TwitterCoinTrendRanking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TwitterCoinTrendRanking.vue?vue&type=script&lang=js& */ "./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TwitterCoinTrendRanking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TwitterCoinTrendRanking.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendRanking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrendRanking.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendRanking_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TwitterCoinTrendRanking.vue?vue&type=template&id=124a0afc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TwitterCoinTrendRanking_vue_vue_type_template_id_124a0afc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

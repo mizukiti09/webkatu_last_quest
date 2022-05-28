@@ -63,9 +63,13 @@ class Twitter
             "include_entities" => true,
         ));
 
+        if (isset($accounts->errors)) {
+            $warningMessage = '15分お待ち頂いてからご利用ください';
+            CleanArchitectureMiddleware::$view = view('pages.twitter.follow.follow_wait', compact('warningMessage'));
+        }
+
         return $accounts;
     }
-
 
     // フォローページにてまだフォローしていないアカウントを選別
     public function followCheck($accounts)
@@ -87,7 +91,7 @@ class Twitter
 
             if (isset($currentFollows->errors)) {
                 $warningMessage = '15分お待ち頂いてからご利用ください';
-                CleanArchitectureMiddleware::$view = view('pages.twitter.follow_wait', compact('warningMessage'));
+                CleanArchitectureMiddleware::$view = view('pages.twitter.follow.follow_wait', compact('warningMessage'));
             }
 
             $yetFollows = [];
@@ -99,5 +103,38 @@ class Twitter
             }
             return $yetFollows;
         }
+    }
+
+
+    public function tweetsData($searchKey, $sinceTime, $untilTime, $loopNumber)
+    {
+        date_default_timezone_set('Asia/Tokyo'); //https://blog.codecamp.jp/php-datetime参考
+
+        // 取得オプション
+        $options = array('q' => $searchKey, 'lang' => 'en', 'count' => 100, 'result_type' => 'resent', 'since' => $sinceTime, 'until' => $untilTime,);
+        // 取得
+        $request_loop = $loopNumber;
+        $tweet_results = array();
+        $results = $this->connection->get("search/tweets", $options);
+
+
+
+        for ($i = 0; $i < $request_loop; $i++) {
+            foreach ($results->statuses as $val) {
+                $tweet_results[]['text'] = $val->text;
+            }
+
+            // 次のツイートデータがあれば処理を続ける
+            if (isset($results->search_metadata->next_results)) {
+                //次ページのmax_id値を取得
+                $max_id = preg_replace('/.*?max_id=([\d]+)&.*/', '$1', $results->search_metadata->next_results);
+                $options['max_id'] = $max_id;
+            } else {
+                // これ以上ツイートがなければ抜ける
+                break;
+            }
+        }
+
+        return $tweet_results;
     }
 }

@@ -36,12 +36,12 @@
 
 @media screen and (max-width: 768px) {
     .c-section {
-        &__title {}
+        &__description {
+            & h2 {
+                font-size: $font-size_x;
+            }
+        }
     }
 }
 
-@media screen and (max-width: 481px) {
-    .c-section {
-        &__title {}
-    }
-}
+@media screen and (max-width: 481px) {}

@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use Illuminate\Support\Facades\Log;
+use App\Console\Commands\CoinTweets;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\CoinTweets::class,
+        \App\Console\Commands\SampleCommand::class,
     ];
 
     /**
@@ -24,8 +27,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('command:coinTweets')
+            ->everyMinute()
+            ->onSuccess(function () {
+                Log::debug('定期処理:coinTweets:成功');
+            })
+            ->onFailure(function () {
+                Log::error('定期処理:coinTweets:失敗');
+            });;
     }
 
     /**
@@ -35,7 +44,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

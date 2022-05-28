@@ -10,6 +10,6 @@ class TwitterFollowPresenter implements TwitterFollowPresenterInterface
 {
     public function handle()
     {
-        CleanArchitectureMiddleware::$view = view('pages.twitter.follow', compact('accounts'));
+        CleanArchitectureMiddleware::$view = view('pages.twitter.follow.follow', compact('accounts'));
     }
 }

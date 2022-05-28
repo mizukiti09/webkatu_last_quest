@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -52,6 +50,7 @@ Route::namespace('Twitter')->group(function () {
 
     Route::prefix('twitter')->group(function () {
         Route::get('/follow', 'TwitterFollowController@index')->name('twitter.follow')->middleware('auth', 'twitterAuth');
+        Route::get('/coin_trend', 'TwitterCoinTrendController@index')->name('twitter.coin_trend')->middleware('auth');
     });
 });
 

@@ -5,8 +5,10 @@ namespace App\Providers;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Http\ViewComposers\UserComposer;
+use packages\Infrastructure\Coin\CoinTweetRepository;
 use App\Http\Presenters\Twitter\TwitterFollowPresenter;
 use App\Http\ViewComposers\TwitterFollowAccountComposer;
+use packages\Domain\Domain\Coin\CoinTweetRepositoryInterface;
 use packages\Domain\Application\Twitter\TwitterAuthInteractor;
 use packages\UseCase\Twitter\Auth\TwitterAuthUseCaseInterface;
 use packages\Domain\Application\Twitter\TwitterFollowInteractor;
@@ -38,14 +40,15 @@ class TwitterServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composers([
-            TwitterFollowAccountComposer::class => 'pages.twitter.*',
-            UserComposer::class => 'app',
+            UserComposer::class                 => 'app',
+            TwitterFollowAccountComposer::class => 'pages.twitter.follow.*',
         ]);
     }
 
     private function registerForFacade()
     {
         $this->app->bind('twitter', 'App\Services\Twitter');
+        $this->app->bind('coin', 'App\Services\Coin');
     }
     /**
      * 登録する必要のある全コンテナ結合
@@ -53,11 +56,12 @@ class TwitterServiceProvider extends ServiceProvider
      * @var array
      */
     public $bindings = [
-        UserTwitterAuthRepositoryInterface::class => UserTwitterAuthRepository::class,
+        UserTwitterAuthRepositoryInterface::class   => UserTwitterAuthRepository::class,
         UserTwitterFollowRepositoryInterface::class => UserTwitterFollowRepository::class,
-        TwitterFollowPresenterInterface::class => TwitterFollowPresenter::class,
-        TwitterAuthUseCaseInterface::class => TwitterAuthInteractor::class,
-        TwitterClickFollowUseCaseInterface::class => TwitterFollowInteractor::class,
-        TwitterAutoFollowUseCaseInterface::class => TwitterFollowInteractor::class,
+        TwitterFollowPresenterInterface::class      => TwitterFollowPresenter::class,
+        TwitterAuthUseCaseInterface::class          => TwitterAuthInteractor::class,
+        TwitterClickFollowUseCaseInterface::class   => TwitterFollowInteractor::class,
+        TwitterAutoFollowUseCaseInterface::class    => TwitterFollowInteractor::class,
+        CoinTweetRepositoryInterface::class         => CoinTweetRepository::class,
     ];
 }
